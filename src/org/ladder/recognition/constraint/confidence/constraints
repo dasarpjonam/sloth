@@ -1,0 +1,47 @@
+
+
+-------------------IMPLEMENTED-----------------
+coincident
+horizontal
+vertical
+posSlope
+negSlope
+acuteMeet (and acuteAngle)
+obtuseMeet (and obtuseAngle)
+bisects
+        bisects_1c (not implemented)
+        bisects_2c (not implemented)
+        bisects_c1 (not implemented)
+        bisects_c2 (not implemented)
+        bisects_cc (not implemented)
+        bisects_cL (not implemented)
+        bisects_Lc (not implemented)
+closer
+connected
+        connected_11 (not implemented)
+        connected_12 (not implemented)
+        connected_21 (not implemented)
+        connected_22 (not implemented)
+equalAngle
+intersects
+sameSize
+    equalArea
+    equalLength
+largerSize
+    larger
+    longer
+smallerSize
+    shorter
+    smaller
+slanted
+parallel
+perpendicular
+sameX
+sameY
+sameWidth
+sameHeight
+above
+below
+rightOf
+leftOf
+contains

@@ -1,0 +1,672 @@
+<?xml version="1.0"?>
+<!--
+ * build.xml
+ *
+ * Revision History: <br>
+ * 2008 July 30 jbjohns - Original
+ * 2008 August 15 jbjohns - JavaDoc and CompletePackage tasks for Core and Engine
+ * 2008 Sept 15 jbjohns - Unit testing, Deep Green tasks, update header comment
+ *
+ * <p>
+ *
+ * <pre>
+ * This work is released under the BSD License:
+ * (C) 2008 Sketch Recognition Lab, Texas A&amp;M University (hereafter SRL @ TAMU)
+ * All rights reserved.
+ *
+ * Redistribution and use in source and binary forms, with or without
+ * modification, are permitted provided that the following conditions are met:
+ *     * Redistributions of source code must retain the above copyright
+ *       notice, this list of conditions and the following disclaimer.
+ *     * Redistributions in binary form must reproduce the above copyright
+ *       notice, this list of conditions and the following disclaimer in the
+ *       documentation and/or other materials provided with the distribution.
+ *     * Neither the name of the Sketch Recognition Lab, Texas A&amp;M University
+ *       nor the names of its contributors may be used to endorse or promote
+ *       products derived from this software without specific prior written
+ *       permission.
+ *
+ * THIS SOFTWARE IS PROVIDED BY SRL @ TAMU ``AS IS'' AND ANY
+ * EXPRESS OR IMPLIED WARRANTIES, INCLUDING, BUT NOT LIMITED TO, THE IMPLIED
+ * WARRANTIES OF MERCHANTABILITY AND FITNESS FOR A PARTICULAR PURPOSE ARE
+ * DISCLAIMED. IN NO EVENT SHALL SRL @ TAMU BE LIABLE FOR ANY
+ * DIRECT, INDIRECT, INCIDENTAL, SPECIAL, EXEMPLARY, OR CONSEQUENTIAL DAMAGES
+ * (INCLUDING, BUT NOT LIMITED TO, PROCUREMENT OF SUBSTITUTE GOODS OR SERVICES;
+ * LOSS OF USE, DATA, OR PROFITS; OR BUSINESS INTERRUPTION) HOWEVER CAUSED AND
+ * ON ANY THEORY OF LIABILITY, WHETHER IN CONTRACT, STRICT LIABILITY, OR TORT
+ * (INCLUDITNG NEGLIGENCE OR OTHERWISE) ARISING IN ANY WAY OUT OF THE USE OF THIS
+ * SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
+ * </pre>
+
+Lots of tasks. Generally, here's how things are laid out:
+    init : initialize build area
+    clean : clean build area
+    ...Compile : compile .java files to .class files
+    ...Build : compile and copy dependencies to deliverables folder
+    ...Jar : make a jar file of all the .class files and put in the deliverables folder
+    ...JavaDoc : Generate the Java Doc
+    ...CompletePackage : Do the JavaDoc and JAR file, and ZIP it all up
+
+    There are two staging areas for builds. The buildDir contains compiled classes
+    from LADDER. This is common for all compilations so things only have to
+    be compiled once, and is a nice warehouse for .class files (makes making
+    JAR files easy). The deliverableDir contains the final staging area for JAR
+    files and dependencies (config files, other JARs, etc). When you do a build
+    task, you can extract everything you need out of the deliverable folder and
+    it should be ready to go, as-is.
+
+    In Eclipse, to run a set of targets, right click on this file in the
+    Package Explorer and click Run As -> Ant Build... (THREE DOTS IS IMPORTANT).
+    You can then check the targets you want run, in the order to want them run. Note that
+    all tasks will automatically execute dependencies. Here's some target dependencies
+    that are automatically handled. Clean is only automatically executed for ...Jar tasks,
+    so that you only get what you expect in the final JAR file.
+
+    CompletePackage -> ..JavaDoc, ...Jar (clean automatically happens here) -> ...Build -> ...Compile -> init
+-->
+<project name="ladder" default="test.junit" basedir="../">
+
+	<echo>Build LADDER.</echo>
+	
+	<!-- Base directories for all builds -->
+	<!-- where the sources are located -->
+	<property name="srcDir" value="./src" />
+	<!-- what the base package is, to save some keystrokes -->
+	<property name="basePackage" value="${srcDir}/org/ladder" />
+	<!-- what the test package is -->
+	<property name="testPackage" value="${srcDir}/test/functional/ladder" />
+	<!-- the lib folder of the project, where the dependency JARs are located -->
+	<property name="libDir" value="./lib" />
+	<!-- the base for where we'll put all our built stuff -->
+	<property name="buildBaseDir" value="./build" />
+	<!-- where to put built stuff -->
+	<property name="buildDir" value="${buildBaseDir}/compiledLadder" />
+	<!-- place for built stuff and all the necessary files for a complete deliverable -->
+	<property name="deliverableDir" value="${buildBaseDir}/deliverable" />
+	<!-- any dependency jars needed by the deliverable go here -->
+	<property name="deliverableLibDir" value="${deliverableDir}/lib" />
+	<!-- where do we put the javadoc? -->
+	<property name="javadocDir" value="${deliverableDir}/api" />
+	<property name="javaExternalAPI" value="http://java.sun.com/javase/6/docs/api/" />
+
+	<!-- Different packages for compilation -->
+	<property name="collectionPackage" value="${basePackage}/collection" />
+	<property name="corePackage" value="${basePackage}/core" />
+	<property name="enginePackage" value="${basePackage}/engine" />
+	<property name="ioPackage" value="${basePackage}/io" />
+	<property name="loaderPackage" value="${basePackage}/loader" />
+	<property name="mathPackage" value="${basePackage}/math" />
+	<property name="recognitionPackage" value="${basePackage}/recognition" />
+	<property name="segmentationPackage" value="${basePackage}/segmentation" />
+	<property name="uiPackage" value="${basePackage}/ui" />
+	<property name="paleoPackage" value="${recognitionPackage}/paleo" />
+	<property name="oneDollarPackage" value="${recognitionPackage}/onedollar" />
+	<property name="toolsPackage" value="${basePackage}/tools" />
+	<property name="patternRecPackage" value="${basePackage}/patternrec" />
+	<property name="graphPackage" value="${toolsPackage}/graph" />
+	<property name="guiPackage" value="${toolsPackage}/gui" />
+	<property name="eventPackage" value="${guiPackage}/event" />
+
+	<!-- Misc. properties -->
+	<property name="tamu" value="Sketch Recognition Lab @ Texas A&amp;M University (srl@tamu.edu)" />
+
+	<!-- ****************************************************** -->
+	<!-- *****         Generic base tasks                 ***** -->
+	<!-- ****************************************************** -->
+	<target name="init">
+		<echo>Create destination directories.</echo>
+		<mkdir dir="${buildDir}" />
+		<mkdir dir="${deliverableDir}" />
+	</target>
+
+	<target name="clean">
+		<echo>Clean destination directories.</echo>
+		<delete dir="${buildDir}" />
+		<delete dir="${deliverableDir}" />
+	</target>
+
+
+	<!-- ****************************************************** -->
+	<!-- *****         LADDER Logger tasks                ***** -->
+	<!-- ****************************************************** -->
+	<!--
+        logging is used by all higher level components, including core, so we
+        treat it as its own special sub-tasks.
+    -->
+	<!-- Where logging stuff is stored in the deliverables -->
+	<property name="loggingBuildDir" value="${deliverableDir}/logging" />
+	<property name="externalLoggingJavadoc" value="http://logging.apache.org/log4j/1.2/apidocs/" />
+
+	<!-- configuration files needed by the logger (originals) -->
+	<fileset id="loggingConfigFiles" dir="${basedir}/logging/">
+		<include name="ladderLoggingConfig.lcf" />
+	</fileset>
+	<!-- jar files needed by the logger -->
+	<path id="loggingJarDependencies">
+		<pathelement location="${libDir}/log4j-1.2.15.jar" />
+	</path>
+
+	<target name="loggingBuild" depends="init">
+		<echo>Create area for logging information and copy it to the build directory.</echo>
+
+		<!-- make the logging dir in deliverables folder -->
+		<mkdir dir="${loggingBuildDir}" />
+		<!-- copy config files and dependency jars -->
+		<copy todir="${loggingBuildDir}" flatten="false">
+			<fileset refid="loggingConfigFiles" />
+		</copy>
+		<copy todir="${deliverableLibDir}" flatten="true">
+			<path refid="loggingJarDependencies" />
+		</copy>
+	</target>
+
+	<!-- ****************************************************** -->
+	<!-- *****         LADDER Core tasks                  ***** -->
+	<!-- ****************************************************** -->
+	<!--
+        The Core is the basis for all higher level LADDER components. Additionally,
+        you might want to build the core alone for dissimination. These tasks
+        are for building the Core and its dependencies
+    -->
+	<!-- any jar files the core is dependent on -->
+	<path id="coreJarDependencies">
+		<path refid="loggingJarDependencies" />
+		<pathelement location="${libDir}/xercesImpl.jar" />
+	</path>
+
+	<property name="coreVersion" value="1.0" />
+	<property name="corePackages" value="${corePackage};${basePackage}/math/linear;${ioPackage}" />
+	<property name="coreJarName" value="ladderCore-${coreVersion}" />
+	<property name="coreJarFile" value="${deliverableDir}/${coreJarName}.jar" />
+	<property name="coreJarManifest" value="${deliverableDir}/CORE_MANIFEST.MF" />
+
+	<target name="coreCompile" depends="init">
+		<echo>Compile LADDER core package and dependent .java files to .class files, referencing .jar dependencies.</echo>
+		<javac srcdir="${corePackages}" destdir="${buildDir}" classpathref="coreJarDependencies">
+		</javac>
+	</target>
+
+	<target name="coreBuild" depends="coreCompile,loggingBuild">
+		<echo>Build LADDER Core and its dependencies.</echo>
+
+		<!-- any jars needed by the core -->
+		<copy todir="${deliverableLibDir}" flatten="true">
+			<path refid="coreJarDependencies" />
+		</copy>
+	</target>
+
+	<fileset id="coreJavadocFiles" dir="${basePackage}">
+		<include name="core/**/*.java" />
+		<include name="math/linear/**/*.java" />
+		<include name="io/**/*.java" />
+	</fileset>
+	<target name="coreJavadoc" depends="init">
+		<javadoc destdir="${javadocDir}" windowtitle="LADDER Core API">
+			<fileset refid="coreJavadocFiles" />
+			<classpath refid="coreJarDependencies" />
+			<link href="${externalLoggingJavadoc}" />
+			<link href="${javaExternalAPI}" />
+		</javadoc>
+	</target>
+
+	<target name="coreJar" depends="clean,coreBuild">
+		<echo>Build LADDER Core and jar it up.</echo>
+
+		<manifest file="${coreJarManifest}">
+			<attribute name="Built-By" value="${tamu}" />
+			<attribute name="Class-Path" value="lib/log4j-1.2.15.jar lib/xercesImpl.jar" />
+		</manifest>
+
+		<jar destfile="${coreJarFile}" basedir="${buildDir}" manifest="${coreJarManifest}" />
+	</target>
+
+	<target name="coreCompletePackage" depends="coreJar,coreJavadoc">
+		<zip destfile="${deliverableDir}/${coreJarName}.zip" basedir="${deliverableDir}">
+		</zip>
+	</target>
+
+	<!-- ****************************************************** -->
+	<!-- *****         Collection tasks                   ***** -->
+	<!-- ****************************************************** -->
+	<path id="collectionDependencies">
+		<path refid="coreJarDependencies" />
+		<path location="${buildDir}" />
+	</path>
+
+	<property name="collectionPackages" value="${collectionPackage};${ioPackage};${basePackage}/ui/drawpanel/old;${basePackage}/examples" />
+	<property name="collectionJarName" value="tamuCollection" />
+	<property name="collectionJarFile" value="${deliverableDir}/${collectionJarName}.jar" />
+	<property name="collecitonJarManifest" value="${deliverableDir}/COLLECTION_MANIFEST.MF" />
+
+	<target name="collectionCompile" depends="coreBuild">
+		<javac srcdir="${collectionPackages}" destdir="${buildDir}" classpathref="collectionDependencies" />
+	</target>
+
+	<target name="collectionBuild" depends="collectionCompile">
+		<echo>Build collection package and copy its dependencies.</echo>
+
+		<!-- copy files the collection studies depend on -->
+		<copy todir="${deliverableDir}" flatten="false">
+			<fileset dir="./collectionFiles" />
+		</copy>
+	</target>
+
+	<fileset id="collectionJavadocFiles" dir="${basePackage}">
+		<include name="core/**/*.java" />
+		<include name="math/linear/**/*.java" />
+		<include name="io/**/*.java" />
+		<include name="collection/**/*.java" />
+		<include name="ui/drawpanel/old/**/*.java" />
+		<include name="/examples/**/*.java" />
+	</fileset>
+	<target name="collectionJavadoc" depends="init">
+		<javadoc destdir="${javadocDir}" windowtitle="LADDER Core and Collection API">
+			<fileset refid="collectionJavadocFiles" />
+			<classpath refid="collectionDependencies" />
+			<link href="${externalLoggingJavadoc}" />
+			<link href="${javaExternalAPI}" />
+		</javadoc>
+	</target>
+
+	<target name="collectionJar" depends="clean,collectionBuild">
+		<echo>Build Collection classes and jar them up.</echo>
+
+		<manifest file="${collecitonJarManifest}">
+			<attribute name="Built-By" value="${tamu}" />
+			<attribute name="Class-Path" value="lib/log4j-1.2.15.jar lib/xercesImpl.jar" />
+		</manifest>
+
+		<jar destfile="${collectionJarFile}" basedir="${buildDir}" manifest="${collecitonJarManifest}" />
+	</target>
+
+	<target name="collectionCompletePackage" depends="clean,collectionJar,collectionJavadoc">
+		<zip destfile="${deliverableDir}/${collectionJarName}.zip" basedir="${deliverableDir}">
+		</zip>
+	</target>
+
+	<!-- ****************************************************** -->
+	<!-- *****         Engine/Loader/UI tasks             ***** -->
+	<!-- ****************************************************** -->
+	<path id="engineDependencies">
+		<path refid="coreJarDependencies" />
+		<path location="${buildDir}" />
+	</path>
+
+	<property name="enginePackages" value="${enginePackage};${ioPackage};${loaderPackage};${uiPackage}" />
+	<property name="engineVersion" value="1.0-beta" />
+	<property name="engineJarName" value="tamuEngine-${engineVersion}" />
+	<property name="engineJarFile" value="${deliverableDir}/${engineJarName}.jar" />
+	<property name="engineJarManifest" value="${deliverableDir}/ENGINE_MANIFEST.MF" />
+
+	<target name="engineCompile" depends="coreBuild">
+		<javac srcdir="${enginePackages}" destdir="${buildDir}" classpathref="engineDependencies" />
+	</target>
+
+	<target name="engineBuild" depends="engineCompile">
+		<echo>Build engine package and copy its dependencies.</echo>
+	</target>
+
+	<fileset id="engineJavadocFiles" dir="${basePackage}">
+		<include name="engine/**/*.java" />
+		<include name="io/**/*.java" />
+		<include name="loader/**/*.java" />
+		<include name="ui/**/*.java" />
+	</fileset>
+	<target name="engineJavadoc" depends="init">
+		<javadoc destdir="${javadocDir}" windowtitle="LADDER API">
+			<fileset refid="engineJavadocFiles" />
+			<fileset refid="coreJavadocFiles" />
+			<classpath refid="engineDependencies" />
+			<link href="${externalLoggingJavadoc}" />
+			<link href="${javaExternalAPI}" />
+		</javadoc>
+	</target>
+
+	<target name="engineJar" depends="clean,engineBuild">
+		<echo>Build engine classes and jar them up.</echo>
+
+		<manifest file="${engineJarManifest}">
+			<attribute name="Built-By" value="${tamu}" />
+			<attribute name="Class-Path" value="lib/log4j-1.2.15.jar" />
+		</manifest>
+
+		<jar destfile="${engineJarFile}" basedir="${buildDir}" manifest="${engineJarManifest}" />
+	</target>
+
+	<target name="engineCompletePackage" depends="engineJar,engineJavadoc">
+		<zip destfile="${deliverableDir}/${engineJarName}.zip" basedir="${deliverableDir}">
+		</zip>
+	</target>
+
+	<!-- ****************************************************** -->
+	<!-- *****     Basic PaleoSketch tasks (no engine)    ***** -->
+	<!-- ****************************************************** -->
+	<path id="paleoDependencies">
+		<path refid="coreJarDependencies" />
+		<path location="${buildDir}" />
+		<pathelement location="lib/Jama-1.0.2.jar" />
+	</path>
+	<path id="paleoJarDependencies">
+		<pathelement location="${libDir}/Jama-1.0.2.jar" />
+	</path>
+
+	<property name="paleoPackages" value="${recognitionPackage};${mathPackage};${segmentationPackage};${paleoPackage};${uiPackage}/drawpanel/old;${testPackage}/recognition/paleo;${ioPackage};${graphPackage};${oneDollarPackage};${patternRecPackage}" />
+	<property name="paleoJarFile" value="${deliverableDir}/tamuPaleoSketch.jar" />
+	<property name="paleoJarManifest" value="${deliverableDir}/PALEO_MANIFEST.MF" />
+
+	<target name="paleoCompile" depends="coreBuild">
+		<javac srcdir="${paleoPackages}" excludes="**/RecognitionManager.java,**/DebugShapeSet.java,**/grouping/**,**/paleoNN/**,**/VisionEye/**,/**/prior/**,**/entropy/**,**/handwriting/**,**/confidence/**,**/constraint/**,**/bullseye/**,**/hausdorff/**,**/rubine/**" destdir="${buildDir}" classpathref="paleoDependencies" />
+	</target>
+
+	<target name="paleoBuild" depends="paleoCompile">
+		<echo>Build PaleoSketch package and copy its dependencies.</echo>
+		<copy todir="${deliverableLibDir}" flatten="true">
+			<path refid="paleoJarDependencies" />
+		</copy>
+	</target>
+
+	<target name="paleoJar" depends="clean,paleoBuild">
+		<echo>Build PaleoSketch classes and jar them up.</echo>
+
+		<manifest file="${paleoJarManifest}">
+			<attribute name="Built-By" value="${tamu}" />
+			<attribute name="Class-Path" value="lib/log4j-1.2.15.jar lib/Jama-1.0.2.jar" />
+			<attribute name="Main-Class" value="test.functional.ladder.recognition.paleo.PaleoTest" />
+		</manifest>
+
+		<jar destfile="${paleoJarFile}" basedir="${buildDir}" manifest="${paleoJarManifest}" />
+	</target>
+
+	<!-- ****************************************************** -->
+	<!-- *****     Deep Green tasks                       ***** -->
+	<!-- ****************************************************** -->
+
+	<!--
+	Here are all the filesets, properties, and tasks for the Deep Green build
+	process. All ant tags are commented with their purpose.
+	-->
+
+	<property name="deepGreenVersion" value="2010-10-13" />
+
+	<!-- define the directory where we'll copy the source files -->
+	<property name="deliverableSourceDir" value="${deliverableDir}/src" />
+
+	<!-- This fileset defines the source files that we're releasing to Deep
+	Green. We use this fileset because we're only ever releasing a subset of
+	our code. It starts at the directory defined by ${srcDir}, and includes
+	all files matching <include> tags. It excludes any files matching <exclude>
+	tags.-->
+	<fileset id="deepGreenSourceFiles" dir="${srcDir}">
+			<!-- Exclude HMC stuff for now
+				<include name="edu/hmc/**" />
+				<exclude name="edu/hmc/Documentation/**" />
+			-->
+			<!-- code in the deep green package-->
+			<include name="edu/tamu/ExampleSketchRecognizer.java" />
+			<include name="edu/tamu/deepGreen/recognition/**/*.java" />
+            <include name="edu/tamu/deepGreen/test/BackgroundImagePanel.java" />
+            <include name="edu/tamu/deepGreen/test/DeepGreenFilter.java" />
+            <include name="edu/tamu/deepGreen/test/DeepGreenGUI.java" />
+            <include name="edu/tamu/deepGreen/test/DrawColorJButton.java" />
+            <include name="edu/tamu/deepGreen/test/ImageFilter.java" />
+            <include name="edu/tamu/deepGreen/test/InterpretationPanel.java" />
+            <include name="edu/tamu/deepGreen/test/NewAPI_CALVINDrawPanel.java" />
+            <include name="edu/tamu/deepGreen/test/NonePanel.java" />
+            <include name="edu/tamu/deepGreen/test/RecognitionResultsPanel.java" />
+            <include name="edu/tamu/deepGreen/test/RecognizePopupMenu.java" />
+            <include name="edu/tamu/deepGreen/test/SaveAskDialog.java" />
+            <include name="edu/tamu/deepGreen/test/StoredStrokePanel.java" />
+            <include name="edu/tamu/deepGreen/test/Symbol.java" />
+            <include name="edu/tamu/deepGreen/test/TopBottomBorder.java" />
+            <include name="edu/tamu/deepGreen/test/XPanel.java" />
+
+            <!-- Things needed by DeepGreenUI -->
+		    <include name="edu/tamu/deepGreen/test/Icons/**/*" />
+		    <include name="edu/tamu/deepGreen/test/Names/**/*" />
+		    <include name="edu/tamu/deepGreen/test/Symbols/**/*" />
+
+
+			<!-- testing programs for shapes and domains -->
+			<include name="test/functional/ladder/recognition/shapes/*.java" />
+			<include name="test/functional/ladder/recognition/constraint/domains/*.java" />
+			<include name="test/functional/ladder/recognition/constraint/domains/io/ShapeDirFilter.java" />
+			<include name="test/unit/SlothTest.java" />
+			<include name="test/unit/deepgreen/*.java" />
+
+			<!-- io for the COATestPanel -->
+			<include name="org/ladder/io/**/*.java" />
+
+			<!-- core stuff -->
+			<include name="org/ladder/core/**/*.java" />
+			<include name="org/ladder/math/**/*.java" />
+			<include name="org/ladder/patternrec/**/*.java" />
+			<include name="org/ladder/datastructures/**/*.java" />
+
+			<!-- recognition -->
+			<include name="org/ladder/recognition/*.java" />
+			<include name="org/ladder/recognition/collision/**/*.java" />
+			<include name="org/ladder/recognition/constraint/**/*.java" />
+			<include name="org/ladder/recognition/entropy/**/*.java" />
+			<include name="org/ladder/recognition/grouping/**/*.java" />
+			<include name="org/ladder/recognition/profiling/**/*.java" />
+			<include name="org/ladder/recognition/VisionEye/**/*.java" />	
+			<include name="org/ladder/recognition/handwriting/**/*.java" />
+			<include name="org/ladder/util/lists/**/*.java" />
+			<include name="org/ladder/recognition/prior/*.java" />
+			<include name="org/ladder/recognition/recognizer/*.java" />
+			<include name="org/ladder/recognition/rubine/*.java" />
+			
+			<!-- paleosketch and dependencies -->
+			<include name="org/ladder/recognition/paleo/**/*.java" />
+			<include name="org/ladder/tools/graph/Plot.java" />
+	        <include name="hhreco/recognition/**/*.java" />
+	        <include name="hhreco/toolbox/**/*.java" />
+	        <include name="hhreco/classification/**/*.java" />
+	        <include name="hhreco/util/**/*.java" />
+
+			<!-- event code needed from tools -->
+			<include name="org/ladder/tools/gui/event/*.java" />
+			<exclude name="org/ladder/tools/gui/event/Layer*.java" />
+			<!-- 
+			<include name="org/ladder/tools/gui/**/*.java" />
+			<exclude name="org/ladder/tools/gui/paleo/**/*.java" />
+			<include name="org/ladder/tools/graph/*.java" />
+			<include name="org/ladder/tools/*.java" />
+			-->
+
+			<!-- segmentation -->
+			<include name="org/ladder/segmentation/**/*.java" />
+	</fileset>
+
+	<!-- This path defines all the Jar files that are needed for any of the 
+	above class files (in the deepGreenSourceFiles fileset to compile and/or
+	run. This files will be copied into a /lib folder for the deliverable. -->
+	<path id="deepGreenJarFiles">
+		<pathelement location="lib/log4j-1.2.15.jar" />
+		<pathelement location="lib/Jama-1.0.2.jar" />
+		<pathelement location="lib/xercesImpl.jar" />
+		<pathelement location="lib/junit-4.4.jar" />
+		<pathelement location="lib/weka.jar" />
+		<pathelement location="lib/libsvm.jar" />
+		<pathelement location="lib/commons-math-2.0.jar" />
+	</path>
+
+	<!-- This property defines the name of the folder where the domain 
+	descriptions will be copied to in the deliverable folder. -->
+	<property name="deliverableDomains" value="${deliverableDir}/domainDescriptions" />
+	<!-- this property defines the name of the directory where all test data
+	will be copied into for the deliverable -->
+	<property name="deliverableTestData" value="${deliverableDir}/testData" />
+	<!-- this property defines the name of the jar (and zip file) for the 
+	release-->
+	<property name="deepGreenJarName" value="tamuDeepGreen-${deepGreenVersion}" />
+	<!-- where to put the compiled source code? -->
+	<property name="deliverableBinDir" value="${deliverableDir}/bin" />
+	<!-- where to put models -->
+	<property name="deliverableModelDir" value="${deliverableDir}/model" />
+	<!-- where to copy configuration files? -->
+	<property name="deliverableConf" value="${deliverableDir}/conf" />
+	<!-- temporary manifest file to put into the jar -->
+	<property name="deepGreenJarManifest" value="${deliverableDir}/DEEP_GREEN_MANIFEST.MF" />
+
+	<!-- Build the deep green deliverable, cleans, inits, builds logging,  
+	copies source files/shape definitions/test data, compiles, and jars -->
+	<target name="deepGreenBuild" depends="clean,init,loggingBuild">
+		<echo>Copy source code and dependencies for Deep Green project</echo>
+		<!-- Jars we depend on -->
+		<echo>Copy over jars we depend on</echo>
+		<copy todir="${deliverableLibDir}" flatten="true">
+			<path refid="deepGreenJarFiles" />
+		</copy>
+		<!-- make source folder, and copy over our .java files -->
+		<mkdir dir="${deliverableSourceDir}" />
+		<copy todir="${deliverableSourceDir}">
+			<fileset refid="deepGreenSourceFiles" />
+		</copy>
+
+		<!-- Domain descriptions -->
+		<echo>Copy over Deep Green domain descriptions</echo>
+		<mkdir dir="${deliverableDomains}" />
+		<copy todir="${deliverableDomains}" flatten="false">
+			<fileset dir="../LadderDomains/deepGreenRelease/domainDescriptions/">
+				<include name="**/*.xml" />
+			</fileset>
+		</copy>
+
+		<!-- all the testing data -->
+		<echo>Copy over Deep Green testing data</echo>
+		<mkdir dir="${deliverableTestData}" />
+		<copy todir="${deliverableTestData}" flatten="false">
+			<fileset dir="../LadderData/deepGreenRelease/testData/">
+				<include name="**/*.xml" />
+			</fileset>
+		</copy>
+		<!-- files needed by tests -->
+		<mkdir dir="${deliverableDir}/testFiles"/>
+		<copy todir="${deliverableDir}/testFiles" flatten="false">
+			<fileset dir="${basedir}/testFiles">
+				<include name="**/*" />
+			</fileset>
+		</copy>
+
+		<!-- Configuration file -->
+		<echo>Copy over configuration file</echo>
+		<mkdir dir="${deliverableConf}" />
+		<copy tofile="${deliverableConf}/ladder.conf" file="./conf/deepGreen_ladder.conf">
+		</copy>
+		
+		<!-- copy over model files -->
+		<echo>Copy over models</echo>
+		<mkdir dir="${deliverableModelDir}" />
+		<copy todir="${deliverableModelDir}" flatten="false">
+			<fileset dir="${basedir}/model">
+				<include name="**/*"/>
+			</fileset>
+		</copy>
+		
+		<!-- copy over the files we use to test the build -->
+		<echo>Copy Build Tests</echo>
+		<copy todir="${deliverableDir}">
+			<fileset dir="${buildBaseDir}">
+				<include name="postBuildTest.sh" />
+			</fileset>
+		</copy>
+
+		<!-- compile everything in the source folder into a bin folder -->
+		<echo>Compile the source and put it in a jar</echo>
+		<mkdir dir="${deliverableBinDir}" />
+		<javac srcdir="${deliverableSourceDir}" destdir="${deliverableBinDir}" classpathref="deepGreenJarFiles"
+        verbose="no" target="1.6" source="1.6">
+            <!--<compilerarg value="-Xlint" />-->
+        </javac>
+		
+		<!-- jar up the contents of the bin folder -->
+		<!-- location and name of the jar file we're going to build -->
+		<property name="jarPath" value="${deliverableDir}/${deepGreenJarName}.jar" />
+		<!-- build the manifest file for the jar -->
+		<manifest file="${deepGreenJarManifest}">
+			<attribute name="Built-By" value="${tamu}" />
+			<attribute name="Class-Path" value="lib/log4j-1.2.15.jar lib/Jama-1.0.2.jar lib/xercesImpl.jar lib/junit-4.4.jar lib/weka.jar lib/libsvm.jar" />
+			<attribute name="Main-Class" value="edu.tamu.deepGreen.test.DeepGreenGUI" />
+		</manifest>
+		<!-- jar hte compiled source -->
+		<jar destfile="${jarPath}" basedir="${deliverableBinDir}" manifest="${deepGreenJarManifest}" />
+		<!-- delete the directory that contains the compiled source -->
+		<delete dir="${deliverableBinDir}">
+		</delete>
+
+		<!-- copy the deepGreenFiles directory -->
+		<copy todir="${deliverableDir}" flatten="false">
+			<fileset dir="./deepGreenFiles">
+				<include name="**/*" />
+			</fileset>
+		</copy>
+	</target>
+
+	<!-- Create JavaDoc for the source files we've copied over. -->
+	<target name="deepGreenJavadoc" depends="init">
+		<javadoc destdir="${javadocDir}" windowtitle="TAMU Sketch Recognition API">
+			<fileset refid="deepGreenSourceFiles" />
+			<classpath refid="deepGreenJarFiles" />
+			<classpath refid="loggingJarDependencies" />
+			<link href="${externalLoggingJavadoc}" />
+			<link href="${javaExternalAPI}" />
+		</javadoc>
+	</target>
+
+	<!-- Zip up the results of the build and the javadoc, and name the same 
+	thing as a JAR file -->
+	<target name="deepGreenCompletePackage" depends="deepGreenBuild,deepGreenJavadoc">
+		<zip destfile="${deliverableDir}/${deepGreenJarName}.zip" basedir="${deliverableDir}">
+		</zip>
+	</target>
+
+	<!-- ****************************************************** -->
+	<!-- *****     Testing Tasks                          ***** -->
+	<!-- ****************************************************** -->
+
+	<property name="lib" value="./lib" />
+	<property name="reportsLocation" value="${buildBaseDir}/testReports" />
+	<property name="reportsJUnitLocation" value="${reportsLocation}/junit" />
+	<property name="reportJUnitExtension" value=".junit.xml" />
+
+	<path id="test.classpath">
+		<fileset dir="${lib}">
+			<include name="**/*.jar" />
+		</fileset>
+	</path>
+
+	<target name="test.junit" depends="clean">
+		<javac srcdir="${srcDir}" destdir="${basedir}/bin" classpathref="test.classpath">
+			<include name="org.ladder.core.config.LadderConfig.java" />
+			<include name="test/**/*.java" />
+		</javac>
+		<delete dir="${reportsLocation}">
+		</delete>
+
+		<mkdir dir="${reportsLocation}" />
+		<mkdir dir="${reportsJUnitLocation}" />
+
+		<junit fork="yes" dir="${basedir}" forkmode="perBatch" haltonfailure="no" printsummary="withOutAndErr" outputtoformatters="true">
+			<formatter type="xml" extension="${reportJUnitExtension}" usefile="true" />
+			<classpath>
+				<path refid="test.classpath" />
+				<pathelement location="${basedir}/bin" />
+			</classpath>
+			<batchtest todir="${reportsJUnitLocation}">
+				<fileset dir="${srcDir}">
+					<include name="test/**/*Test*.java" />
+					<exclude name="test/ladder/SlothTest.java" />
+				</fileset>
+			</batchtest>
+		</junit>
+
+		<junitreport todir="${reportsLocation}">
+			<fileset dir="${reportsJUnitLocation}">
+				<include name="*${reportJUnitExtension}" />
+			</fileset>
+			<report todir="${reportsLocation}" />
+		</junitreport>
+	</target>
+
+</project>

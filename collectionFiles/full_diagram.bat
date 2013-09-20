@@ -1,0 +1,1 @@
+java -classpath .;tamuCollection.jar org.ladder.collection.SimpleCollection config\full_diagram.txt true data\whole_diagrams maps\map.jpg true

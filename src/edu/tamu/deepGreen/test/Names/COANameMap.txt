@@ -1,0 +1,511 @@
+022_H_CO_P_X_airDefense;022;Hostile;Company;Present;X;Unit, Air Defense
+022_F_CO_A_X_airDefense;022;Friendly;Company;Anticipated;X;Unit, Air Defense
+022_F_CO_P_X_airDefense;022;Friendly;Company;Present;X;Unit, Air Defense
+023_H_PLT_A_RED_armor;023;Hostile;Platoon;Anticipated;Reduced;Unit, Armor
+023_H_PLT_A_REI_armor;023;Hostile;Platoon;Anticipated;Reinforced;Unit, Armor
+023_F_BDE_A_RED_armor;023;Friendly;Brigade;Anticipated;Reduced;Unit, Armor
+023_F_BDE_A_REI_armor;023;Friendly;Brigade;Anticipated;Reinforced;Unit, Armor
+023_H_BDE_P_X_armor;023;Hostile;Brigade;Present;X;Unit, Armor
+023_H_BDE_A_X_armor;023;Hostile;Brigade;Anticipated;X;Unit, Armor
+023_H_BDE_P_RED_armor;023;Hostile;Brigade;Present;Reduced;Unit, Armor
+023_H_BDE_P_REI_armor;023;Hostile;Brigade;Present;Reinforced;Unit, Armor
+023_H_BDE_A_RED_armor;023;Hostile;Brigade;Anticipated;Reduced;Unit, Armor
+023_H_BDE_A_REI_armor;023;Hostile;Brigade;Anticipated;Reinforced;Unit, Armor
+023_F_BDE_P_RED_armor;023;Friendly;Brigade;Present;Reduced;Unit, Armor
+023_H_PLT_P_REI_armor;023;Hostile;Platoon;Present;Reinforced;Unit, Armor
+023_F_BDE_A_X_armor;023;Friendly;Brigade;Anticipated;X;Unit, Armor
+023_F_PLT_P_X_armor;023;Friendly;Platoon;Present;X;Unit, Armor
+023_F_PLT_A_X_armor;023;Friendly;Platoon;Anticipated;X;Unit, Armor
+023_F_PLT_P_RED_armor;023;Friendly;Platoon;Present;Reduced;Unit, Armor
+023_F_PLT_P_REI_armor;023;Friendly;Platoon;Present;Reinforced;Unit, Armor
+023_F_PLT_A_RED_armor;023;Friendly;Platoon;Anticipated;Reduced;Unit, Armor
+023_F_PLT_A_REI_armor;023;Friendly;Platoon;Anticipated;Reinforced;Unit, Armor
+023_H_PLT_P_X_armor;023;Hostile;Platoon;Present;X;Unit, Armor
+023_H_PLT_A_X_armor;023;Hostile;Platoon;Anticipated;X;Unit, Armor
+023_H_PLT_P_RED_armor;023;Hostile;Platoon;Present;Reduced;Unit, Armor
+023_H_BN_A_REI_armor;023;Hostile;Battalion;Anticipated;Reinforced;Unit, Armor
+023_H_CO_P_REI_armor;023;Hostile;Company;Present;Reinforced;Unit, Armor
+023_H_BN_A_RED_armor;023;Hostile;Battalion;Anticipated;Reduced;Unit, Armor
+023_H_BN_P_REI_armor;023;Hostile;Battalion;Present;Reinforced;Unit, Armor
+023_H_BN_P_RED_armor;023;Hostile;Battalion;Present;Reduced;Unit, Armor
+023_H_BN_A_X_armor;023;Hostile;Battalion;Anticipated;X;Unit, Armor
+023_H_BN_P_X_armor;023;Hostile;Battalion;Present;X;Unit, Armor
+023_F_BN_A_REI_armor;023;Friendly;Battalion;Anticipated;Reinforced;Unit, Armor
+023_F_BN_A_RED_armor;023;Friendly;Battalion;Anticipated;Reduced;Unit, Armor
+023_F_BN_P_REI_armor;023;Friendly;Battalion;Present;Reinforced;Unit, Armor
+023_F_BN_P_RED_armor;023;Friendly;Battalion;Present;Reduced;Unit, Armor
+023_F_BN_A_X_armor;023;Friendly;Battalion;Anticipated;X;Unit, Armor
+023_F_BN_P_X_armor;023;Friendly;Battalion;Present;X;Unit, Armor
+023_F_BDE_P_REI_armor;023;Friendly;Brigade;Present;Reinforced;Unit, Armor
+023_H_CO_A_RED_armor;023;Hostile;Company;Anticipated;Reduced;Unit, Armor
+023_H_CO_P_RED_armor;023;Hostile;Company;Present;Reduced;Unit, Armor
+023_H_CO_A_X_armor;023;Hostile;Company;Anticipated;X;Unit, Armor
+023_H_CO_P_X_armor;023;Hostile;Company;Present;X;Unit, Armor
+023_F_CO_A_REI_armor;023;Friendly;Company;Anticipated;Reinforced;Unit, Armor
+023_F_BDE_P_X_armor;023;Friendly;Brigade;Present;X;Unit, Armor
+023_F_CO_A_RED_armor;023;Friendly;Company;Anticipated;Reduced;Unit, Armor
+023_F_CO_P_REI_armor;023;Friendly;Company;Present;Reinforced;Unit, Armor
+023_F_CO_P_RED_armor;023;Friendly;Company;Present;Reduced;Unit, Armor
+023_F_CO_A_X_armor;023;Friendly;Company;Anticipated;X;Unit, Armor
+023_F_CO_P_X_armor;023;Friendly;Company;Present;X;Unit, Armor
+023_H_CO_A_REI_armor;023;Hostile;Company;Anticipated;Reinforced;Unit, Armor
+025_F_CO_P_X_armorTrackedAirborne;025;Friendly;Company;Present;X;Unit, Armor, Tracked, Airborne
+026_F_CO_P_X_armorTrackedAmphibious;026;Friendly;Company;Present;X;Unit, Armor, Tracked, Amphibious
+027_F_CO_P_X_armorTrackedLight;027;Friendly;Company;Present;X;Unit, Armor, Tracked, Light
+028_F_CO_P_X_armorTrackedMedium;028;Friendly;Company;Present;X;Unit, Armor, Tracked, Medium
+029_F_CO_P_X_armorTrackedHeavy;029;Friendly;Company;Present;X;Unit, Armor, Tracked, Heavy
+030_F_CO_P_X_armorWheeled;030;Friendly;Company;Present;X;Unit, Armor, Wheeled
+032_F_CO_P_X_armorWheeledAirborne;032;Friendly;Company;Present;X;Unit, Armor, Wheeled, Airborne
+033_F_CO_P_X_armorWheeledAmphibious;033;Friendly;Company;Present;X;Unit, Armor, Wheeled, Amphibious
+034_F_CO_P_X_armorWheeledLight;034;Friendly;Company;Present;X;Unit, Armor, Wheeled, Light
+035_F_CO_P_X_armorWheeledMedium;035;Friendly;Company;Present;X;Unit, Armor, Wheeled, Medium
+035_F_CO_P_X_armorWheeledHeavy;035;Friendly;Company;Present;X;Unit, Armor, Wheeled, Heavy
+037_H_PLT_A_X_antiArmor;037;Hostile;Platoon;Anticipated;X;Unit, Anti Armor
+037_H_BDE_A_X_antiArmor;037;Hostile;Brigade;Anticipated;X;Unit, Anti Armor
+037_H_BDE_P_X_antiArmor;037;Hostile;Brigade;Present;X;Unit, Anti Armor
+037_H_BN_A_X_antiArmor;037;Hostile;Battalion;Anticipated;X;Unit, Anti Armor
+037_H_BN_P_X_antiArmor;037;Hostile;Battalion;Present;X;Unit, Anti Armor
+037_H_CO_P_X_antiArmor;037;Hostile;Company;Present;X;Unit, Anti Armor
+037_H_PLT_P_X_antiArmor;037;Hostile;Platoon;Present;X;Unit, Anti Armor
+037_F_CO_P_X_antiArmor;037;Friendly;Company;Present;X;Unit, Anti Armor
+037_H_CO_A_X_antiArmor;037;Hostile;Company;Anticipated;X;Unit, Anti Armor
+038_F_CO_P_X_antiArmorLight;038;Friendly;Company;Present;X;Unit, Anti Armor, Light
+039_F_CO_P_X_antiArmorAirborne;039;Friendly;Company;Present;X;Unit, Anti Armor, Airborne
+040_F_CO_P_X_antiArmorAirAssault;040;Friendly;Company;Present;X;Unit, Anti Armor, Air Assault
+043_F_CO_P_X_antiArmorArmoredWheeled;043;Friendly;Company;Present;X;Unit, Anti Armor, Armored, Wheeled
+043_H_CO_P_X_antiArmorArmoredWheeled;043;Hostile;Company;Present;X;Unit, Anti Armor, Armored, Wheeled
+044_F_CO_P_X_antiArmorArmoredAirAssault;044;Friendly;Company;Present;X;Unit, Anti Armor, Armored, Air Assault
+045_H_CO_P_X_aviation;045;Hostile;Company;Present;X;Unit, Aviation
+045_F_CO_P_X_aviation;045;Friendly;Company;Present;X;Unit, Aviation
+048_F_CO_P_X_aviationRotaryWingAttack;048;Friendly;Company;Present;X;Unit, Aviation, Rotary Wing, Attack
+048_F_CO_A_X_aviationRotaryWingAttack;048;Friendly;Company;Anticipated;X;Unit, Aviation, Rotary Wing, Attack
+049_F_CO_A_X_aviationRotaryWingUtility;049;Friendly;Company;Anticipated;X;Unit, Aviation, Rotary Wing, Utility
+049_F_CO_P_X_aviationRotaryWingUtility;049;Friendly;Company;Present;X;Unit, Aviation, Rotary Wing, Utility
+051_F_CO_P_X_aviationRotaryWingUtilityLight;051;Friendly;Company;Present;X;Unit, Aviation, Rotary Wing, Utility, Light
+053_F_CO_P_X_aviationRotaryWingUtilityMedium;053;Friendly;Company;Present;X;Unit, Aviation, Rotary Wing, Utility, Medium
+055_F_CO_P_X_aviationRotaryWingUtilityHeavy;055;Friendly;Company;Present;X;Unit, Aviation, Rotary Wing, Utility, Heavy
+057_H_PLT_A_RED_infantry;057;Hostile;Platoon;Anticipated;Reduced;Unit, Infantry
+057_H_BN_P_X_infantry;057;Hostile;Battalion;Present;X;Unit, Infantry
+057_H_CO_A_REI_infantry;057;Hostile;Company;Anticipated;Reinforced;Unit, Infantry
+057_H_CO_A_X_infantry;057;Hostile;Company;Anticipated;X;Unit, Infantry
+057_H_CO_P_RED_infantry;057;Hostile;Company;Present;Reduced;Unit, Infantry
+057_H_PLT_A_REI_infantry;057;Hostile;Platoon;Anticipated;Reinforced;Unit, Infantry
+057_H_BN_A_X_infantry;057;Hostile;Battalion;Anticipated;X;Unit, Infantry
+057_H_PLT_A_X_infantry;057;Hostile;Platoon;Anticipated;X;Unit, Infantry
+057_H_PLT_P_REI_infantry;057;Hostile;Platoon;Present;Reinforced;Unit, Infantry
+057_H_PLT_P_RED_infantry;057;Hostile;Platoon;Present;Reduced;Unit, Infantry
+057_H_CO_P_X_infantry;057;Hostile;Company;Present;X;Unit, Infantry
+057_H_BN_P_REI_infantry;057;Hostile;Battalion;Present;Reinforced;Unit, Infantry
+057_H_CO_P_REI_infantry;057;Hostile;Company;Present;Reinforced;Unit, Infantry
+057_H_BN_A_RED_infantry;057;Hostile;Battalion;Anticipated;Reduced;Unit, Infantry
+057_H_BN_A_REI_infantry;057;Hostile;Battalion;Anticipated;Reinforced;Unit, Infantry
+057_H_BDE_P_X_infantry;057;Hostile;Brigade;Present;X;Unit, Infantry
+057_H_BDE_P_RED_infantry;057;Hostile;Brigade;Present;Reduced;Unit, Infantry
+057_H_BDE_P_REI_infantry;057;Hostile;Brigade;Present;Reinforced;Unit, Infantry
+057_H_BDE_A_X_infantry;057;Hostile;Brigade;Anticipated;X;Unit, Infantry
+057_H_BDE_A_RED_infantry;057;Hostile;Brigade;Anticipated;Reduced;Unit, Infantry
+057_H_BDE_A_REI_infantry;057;Hostile;Brigade;Anticipated;Reinforced;Unit, Infantry
+057_H_PLT_P_X_infantry;057;Hostile;Platoon;Present;X;Unit, Infantry
+057_H_BN_P_RED_infantry;057;Hostile;Battalion;Present;Reduced;Unit, Infantry
+057_F_BN_P_RED_infantry;057;Friendly;Battalion;Present;Reduced;Unit, Infantry
+057_F_PLT_P_RED_infantry;057;Friendly;Platoon;Present;Reduced;Unit, Infantry
+057_F_PLT_P_REI_infantry;057;Friendly;Platoon;Present;Reinforced;Unit, Infantry
+057_F_PLT_A_X_infantry;057;Friendly;Platoon;Anticipated;X;Unit, Infantry
+057_F_PLT_A_RED_infantry;057;Friendly;Platoon;Anticipated;Reduced;Unit, Infantry
+057_F_PLT_A_REI_infantry;057;Friendly;Platoon;Anticipated;Reinforced;Unit, Infantry
+057_F_CO_P_X_infantry;057;Friendly;Company;Present;X;Unit, Infantry
+057_F_CO_P_RED_infantry;057;Friendly;Company;Present;Reduced;Unit, Infantry
+057_F_CO_P_REI_infantry;057;Friendly;Company;Present;Reinforced;Unit, Infantry
+057_F_CO_A_X_infantry;057;Friendly;Company;Anticipated;X;Unit, Infantry
+057_F_CO_A_RED_infantry;057;Friendly;Company;Anticipated;Reduced;Unit, Infantry
+057_H_CO_A_RED_infantry;057;Hostile;Company;Anticipated;Reduced;Unit, Infantry
+057_F_BN_P_X_infantry;057;Friendly;Battalion;Present;X;Unit, Infantry
+057_F_PLT_P_X_infantry;057;Friendly;Platoon;Present;X;Unit, Infantry
+057_F_BN_P_REI_infantry;057;Friendly;Battalion;Present;Reinforced;Unit, Infantry
+057_F_BDE_A_REI_infantry;057;Friendly;Brigade;Anticipated;Reinforced;Unit, Infantry
+057_F_BN_A_X_infantry;057;Friendly;Battalion;Anticipated;X;Unit, Infantry
+057_F_BN_A_RED_infantry;057;Friendly;Battalion;Anticipated;Reduced;Unit, Infantry
+057_F_BN_A_REI_infantry;057;Friendly;Battalion;Anticipated;Reinforced;Unit, Infantry
+057_F_BDE_P_X_infantry;057;Friendly;Brigade;Present;X;Unit, Infantry
+057_F_BDE_P_RED_infantry;057;Friendly;Brigade;Present;Reduced;Unit, Infantry
+057_F_BDE_P_REI_infantry;057;Friendly;Brigade;Present;Reinforced;Unit, Infantry
+057_F_BDE_A_X_infantry;057;Friendly;Brigade;Anticipated;X;Unit, Infantry
+057_F_BDE_A_RED_infantry;057;Friendly;Brigade;Anticipated;Reduced;Unit, Infantry
+057_F_CO_A_REI_infantry;057;Friendly;Company;Anticipated;Reinforced;Unit, Infantry
+058_F_CO_P_X_infantryLight;058;Friendly;Company;Present;X;Unit, Infantry, Light
+059_F_CO_P_X_infantryAirborne;059;Friendly;Company;Present;X;Unit, Infantry, Airborne
+060_F_CO_P_X_infantryAirAssault;060;Friendly;Company;Present;X;Unit, Infantry, Air Assault
+061_H_BN_P_RED_infantryMechanized;061;Hostile;Battalion;Present;Reduced;Unit, Infantry, Mechanized
+061_H_PLT_P_RED_infantryMechanized;061;Hostile;Platoon;Present;Reduced;Unit, Infantry, Mechanized
+061_H_PLT_P_REI_infantryMechanized;061;Hostile;Platoon;Present;Reinforced;Unit, Infantry, Mechanized
+061_H_PLT_A_X_infantryMechanized;061;Hostile;Platoon;Anticipated;X;Unit, Infantry, Mechanized
+061_H_PLT_A_RED_infantryMechanized;061;Hostile;Platoon;Anticipated;Reduced;Unit, Infantry, Mechanized
+061_H_PLT_A_REI_infantryMechanized;061;Hostile;Platoon;Anticipated;Reinforced;Unit, Infantry, Mechanized
+061_H_CO_P_X_infantryMechanized;061;Hostile;Company;Present;X;Unit, Infantry, Mechanized
+061_H_CO_P_RED_infantryMechanized;061;Hostile;Company;Present;Reduced;Unit, Infantry, Mechanized
+061_H_CO_P_REI_infantryMechanized;061;Hostile;Company;Present;Reinforced;Unit, Infantry, Mechanized
+061_H_CO_A_X_infantryMechanized;061;Hostile;Company;Anticipated;X;Unit, Infantry, Mechanized
+061_H_CO_A_RED_infantryMechanized;061;Hostile;Company;Anticipated;Reduced;Unit, Infantry, Mechanized
+061_H_BDE_A_REI_infantryMechanized;061;Hostile;Brigade;Anticipated;Reinforced;Unit, Infantry, Mechanized
+061_H_BN_P_X_infantryMechanized;061;Hostile;Battalion;Present;X;Unit, Infantry, Mechanized
+061_H_BN_A_X_infantryMechanized;061;Hostile;Battalion;Anticipated;X;Unit, Infantry, Mechanized
+061_H_BN_A_RED_infantryMechanized;061;Hostile;Battalion;Anticipated;Reduced;Unit, Infantry, Mechanized
+061_H_BN_A_REI_infantryMechanized;061;Hostile;Battalion;Anticipated;Reinforced;Unit, Infantry, Mechanized
+061_H_BDE_P_X_infantryMechanized;061;Hostile;Brigade;Present;X;Unit, Infantry, Mechanized
+061_H_BDE_P_RED_infantryMechanized;061;Hostile;Brigade;Present;Reduced;Unit, Infantry, Mechanized
+061_H_BDE_P_REI_infantryMechanized;061;Hostile;Brigade;Present;Reinforced;Unit, Infantry, Mechanized
+061_H_BDE_A_X_infantryMechanized;061;Hostile;Brigade;Anticipated;X;Unit, Infantry, Mechanized
+061_H_BDE_A_RED_infantryMechanized;061;Hostile;Brigade;Anticipated;Reduced;Unit, Infantry, Mechanized
+061_H_PLT_P_X_infantryMechanized;061;Hostile;Platoon;Present;X;Unit, Infantry, Mechanized
+061_H_CO_A_REI_infantryMechanized;061;Hostile;Company;Anticipated;Reinforced;Unit, Infantry, Mechanized
+061_F_CO_P_X_infantryMechanized;061;Friendly;Company;Present;X;Unit, Infantry, Mechanized
+061_F_BDE_A_REI_infantryMechanized;061;Friendly;Brigade;Anticipated;Reinforced;Unit, Infantry, Mechanized
+061_H_BN_P_REI_infantryMechanized;061;Hostile;Battalion;Present;Reinforced;Unit, Infantry, Mechanized
+061_F_PLT_P_X_infantryMechanized;061;Friendly;Platoon;Present;X;Unit, Infantry, Mechanized
+061_F_PLT_P_RED_infantryMechanized;061;Friendly;Platoon;Present;Reduced;Unit, Infantry, Mechanized
+061_F_PLT_P_REI_infantryMechanized;061;Friendly;Platoon;Present;Reinforced;Unit, Infantry, Mechanized
+061_F_PLT_A_X_infantryMechanized;061;Friendly;Platoon;Anticipated;X;Unit, Infantry, Mechanized
+061_F_PLT_A_REI_infantryMechanized;061;Friendly;Platoon;Anticipated;Reinforced;Unit, Infantry, Mechanized
+061_F_CO_P_RED_infantryMechanized;061;Friendly;Company;Present;Reduced;Unit, Infantry, Mechanized
+061_F_CO_P_REI_infantryMechanized;061;Friendly;Company;Present;Reinforced;Unit, Infantry, Mechanized
+061_F_CO_A_X_infantryMechanized;061;Friendly;Company;Anticipated;X;Unit, Infantry, Mechanized
+061_F_CO_A_RED_infantryMechanized;061;Friendly;Company;Anticipated;Reduced;Unit, Infantry, Mechanized
+061_F_BN_A_REI_infantryMechanized;061;Friendly;Battalion;Anticipated;Reinforced;Unit, Infantry, Mechanized
+061_F_PLT_A_RED_infantryMechanized;061;Friendly;Platoon;Anticipated;Reduced;Unit, Infantry, Mechanized
+061_F_BDE_A_X_infantryMechanized;061;Friendly;Brigade;Anticipated;X;Unit, Infantry, Mechanized
+061_F_CO_A_REI_infantryMechanized;061;Friendly;Company;Anticipated;Reinforced;Unit, Infantry, Mechanized
+061_F_BDE_P_RED_infantryMechanized;061;Friendly;Brigade;Present;Reduced;Unit, Infantry, Mechanized
+061_F_BDE_P_X_infantryMechanized;061;Friendly;Brigade;Present;X;Unit, Infantry, Mechanized
+061_F_BDE_P_REI_infantryMechanized;061;Friendly;Brigade;Present;Reinforced;Unit, Infantry, Mechanized
+061_F_BN_A_RED_infantryMechanized;061;Friendly;Battalion;Anticipated;Reduced;Unit, Infantry, Mechanized
+061_F_BDE_A_RED_infantryMechanized;061;Friendly;Brigade;Anticipated;Reduced;Unit, Infantry, Mechanized
+061_F_BN_A_X_infantryMechanized;061;Friendly;Battalion;Anticipated;X;Unit, Infantry, Mechanized
+061_F_BN_P_REI_infantryMechanized;061;Friendly;Battalion;Present;Reinforced;Unit, Infantry, Mechanized
+061_F_BN_P_RED_infantryMechanized;061;Friendly;Battalion;Present;Reduced;Unit, Infantry, Mechanized
+061_F_BN_P_X_infantryMechanized;061;Friendly;Battalion;Present;X;Unit, Infantry, Mechanized
+062_F_BDE_P_X_infantryInfantryFightingVehicle;062;Friendly;Brigade;Present;X;Unit, Infantry Fighting Vehicle
+062_F_BN_A_RED_infantryInfantryFightingVehicle;062;Friendly;Battalion;Anticipated;Reduced;Unit, Infantry Fighting Vehicle
+062_F_BN_A_REI_infantryInfantryFightingVehicle;062;Friendly;Battalion;Anticipated;Reinforced;Unit, Infantry Fighting Vehicle
+062_F_BN_P_REI_infantryInfantryFightingVehicle;062;Friendly;Battalion;Present;Reinforced;Unit, Infantry Fighting Vehicle
+062_F_BDE_P_RED_infantryInfantryFightingVehicle;062;Friendly;Brigade;Present;Reduced;Unit, Infantry Fighting Vehicle
+062_F_BDE_P_REI_infantryInfantryFightingVehicle;062;Friendly;Brigade;Present;Reinforced;Unit, Infantry Fighting Vehicle
+062_F_BDE_A_X_infantryInfantryFightingVehicle;062;Friendly;Brigade;Anticipated;X;Unit, Infantry Fighting Vehicle
+062_F_BDE_A_REI_infantryInfantryFightingVehicle;062;Friendly;Brigade;Anticipated;Reinforced;Unit, Infantry Fighting Vehicle
+062_F_BN_P_X_infantryInfantryFightingVehicle;062;Friendly;Battalion;Present;X;Unit, Infantry Fighting Vehicle
+062_F_BN_P_RED_infantryInfantryFightingVehicle;062;Friendly;Battalion;Present;Reduced;Unit, Infantry Fighting Vehicle
+062_F_BDE_A_RED_infantryInfantryFightingVehicle;062;Friendly;Brigade;Anticipated;Reduced;Unit, Infantry Fighting Vehicle
+062_F_PLT_P_RED_infantryInfantryFightingVehicle;062;Friendly;Platoon;Present;Reduced;Unit, Infantry Fighting Vehicle
+062_F_CO_A_REI_infantryInfantryFightingVehicle;062;Friendly;Company;Anticipated;Reinforced;Unit, Infantry Fighting Vehicle
+062_F_BN_A_X_infantryInfantryFightingVehicle;062;Friendly;Battalion;Anticipated;X;Unit, Infantry Fighting Vehicle
+062_F_PLT_P_X_infantryInfantryFightingVehicle;062;Friendly;Platoon;Present;X;Unit, Infantry Fighting Vehicle
+062_F_PLT_P_REI_infantryInfantryFightingVehicle;062;Friendly;Platoon;Present;Reinforced;Unit, Infantry Fighting Vehicle
+062_F_PLT_A_X_infantryInfantryFightingVehicle;062;Friendly;Platoon;Anticipated;X;Unit, Infantry Fighting Vehicle
+062_F_PLT_A_RED_infantryInfantryFightingVehicle;062;Friendly;Platoon;Anticipated;Reduced;Unit, Infantry Fighting Vehicle
+062_F_CO_P_X_infantryInfantryFightingVehicle;062;Friendly;Company;Present;X;Unit, Infantry Fighting Vehicle
+062_F_CO_P_RED_infantryInfantryFightingVehicle;062;Friendly;Company;Present;Reduced;Unit, Infantry Fighting Vehicle
+062_F_CO_A_RED_infantryInfantryFightingVehicle;062;Friendly;Company;Anticipated;Reduced;Unit, Infantry Fighting Vehicle
+062_F_CO_P_REI_infantryInfantryFightingVehicle;062;Friendly;Company;Present;Reinforced;Unit, Infantry Fighting Vehicle
+062_F_CO_A_X_infantryInfantryFightingVehicle;062;Friendly;Company;Anticipated;X;Unit, Infantry Fighting Vehicle
+062_F_PLT_A_REI_infantryInfantryFightingVehicle;062;Friendly;Platoon;Anticipated;Reinforced;Unit, Infantry Fighting Vehicle
+063_F_CO_A_X_engineer;063;Friendly;Company;Anticipated;X;Unit, Engineer
+063_H_CO_A_X_engineer;063;Hostile;Company;Anticipated;X;Unit, Engineer
+063_H_CO_P_X_engineer;063;Hostile;Company;Present;X;Unit, Engineer
+063_F_BN_P_X_engineer;063;Friendly;Battalion;Present;X;Unit, Engineer
+063_F_CO_P_X_engineer;063;Friendly;Company;Present;X;Unit, Engineer
+063_F_BN_A_X_engineer;063;Friendly;Battalion;Anticipated;X;Unit, Engineer
+065_F_CO_P_X_engineerCombatAirAssault;065;Friendly;Company;Present;X;Unit, Engineer, Combat, Air Assault
+066_F_CO_P_X_engineerCombatAirborne;066;Friendly;Company;Present;X;Unit, Engineer, Combat, Airborne
+070_H_CO_P_X_engineerCombatMechanized;070;Hostile;Company;Present;X;Unit, Engineer, Combat, Mechanized
+070_F_BN_A_X_engineerCombatMechanized;070;Friendly;Battalion;Anticipated;X;Unit, Engineer, Combat, Mechanized
+070_F_CO_P_X_engineerCombatMechanized;070;Friendly;Company;Present;X;Unit, Engineer, Combat, Mechanized
+070_F_CO_A_X_engineerCombatMechanized;070;Friendly;Company;Anticipated;X;Unit, Engineer, Combat, Mechanized
+070_F_BN_P_X_engineerCombatMechanized;070;Friendly;Battalion;Present;X;Unit, Engineer, Combat, Mechanized
+071_F_CO_P_X_engineerCombatReconnaissance;071;Friendly;Company;Present;X;Unit, Engineer, Combat, Reconnaissance
+071_H_CO_P_X_engineerCombatReconnaissance;071;Hostile;Company;Present;X;Unit, Engineer, Combat, Reconnaissance
+072_H_CO_P_X_fieldArtillery;072;Hostile;Company;Present;X;Unit, Field Artillery
+072_H_BN_A_X_fieldArtillery;072;Hostile;Battalion;Anticipated;X;Unit, Field Artillery
+072_H_CO_A_X_fieldArtillery;072;Hostile;Company;Anticipated;X;Unit, Field Artillery
+072_F_BN_A_X_fieldArtillery;072;Friendly;Battalion;Anticipated;X;Unit, Field Artillery
+072_F_BN_P_X_fieldArtillery;072;Friendly;Battalion;Present;X;Unit, Field Artillery
+072_F_CO_A_X_fieldArtillery;072;Friendly;Company;Anticipated;X;Unit, Field Artillery
+072_F_CO_P_X_fieldArtillery;072;Friendly;Company;Present;X;Unit, Field Artillery
+072_H_BN_P_X_fieldArtillery;072;Hostile;Battalion;Present;X;Unit, Field Artillery
+074_F_CO_P_X_fieldArtilleryHowitzerSelfPropelled;074;Friendly;Company;Present;X;Unit, Field Artillery, Howitzer, Self-Propelled
+074_F_CO_A_X_fieldArtilleryHowitzerSelfPropelled;074;Friendly;Company;Anticipated;X;Unit, Field Artillery, Howitzer, Self-Propelled
+074_F_BN_P_X_fieldArtilleryHowitzerSelfPropelled;074;Friendly;Battalion;Present;X;Unit, Field Artillery, Howitzer, Self-Propelled
+074_F_BN_A_X_fieldArtilleryHowitzerSelfPropelled;074;Friendly;Battalion;Anticipated;X;Unit, Field Artillery, Howitzer, Self-Propelled
+074_H_CO_P_X_fieldArtilleryHowitzerSelfPropelled;074;Hostile;Company;Present;X;Unit, Field Artillery, Howitzer, Self-Propelled
+075_F_CO_P_X_fieldArtilleryHowitzerAirAssault;075;Friendly;Company;Present;X;Unit, Field Artillery, Howitzer, Air Assault
+076_F_CO_P_X_fieldArtilleryHowitzerAirborne;076;Friendly;Company;Present;X;Unit, Field Artillery, Howitzer, Airborne
+077_F_CO_P_X_fieldArtilleryHowitzerLight;077;Friendly;Company;Present;X;Unit, Field Artillery, Howitzer, Light
+078_F_CO_P_X_fieldArtilleryHowitzerMedium;078;Friendly;Company;Present;X;Unit, Field Artillery, Howitzer, Medium
+079_F_CO_P_X_fieldArtilleryHowitzerHeavy;079;Friendly;Company;Present;X;Unit, Field Artillery, Howitzer, Heavy
+080_F_CO_P_X_fieldArtilleryHowitzerAmphibious;080;Friendly;Company;Present;X;Unit, Field Artillery, Howitzer, Amphibious
+082_H_BN_A_X_fieldArtilleryHowitzerRocketMultiRocketLauncher;082;Hostile;Battalion;Anticipated;X;Unit, Field Artillery, Howitzer, Rocket, Multi-Rocket Launcher
+082_F_CO_P_X_fieldArtilleryHowitzerRocketMultiRocketLauncher;082;Friendly;Company;Present;X;Unit, Field Artillery, Howitzer, Rocket, Multi-Rocket Launcher
+082_H_CO_P_X_fieldArtilleryHowitzerRocketMultiRocketLauncher;082;Hostile;Company;Present;X;Unit, Field Artillery, Howitzer, Rocket, Multi-Rocket Launcher
+082_H_BN_P_X_fieldArtilleryHowitzerRocketMultiRocketLauncher;082;Hostile;Battalion;Present;X;Unit, Field Artillery, Howitzer, Rocket, Multi-Rocket Launcher
+082_H_CO_A_X_fieldArtilleryHowitzerRocketMultiRocketLauncher;082;Hostile;Company;Anticipated;X;Unit, Field Artillery, Howitzer, Rocket, Multi-Rocket Launcher
+083_F_CO_P_X_fieldArtilleryHowitzerRocketMultiRocketLauncherSelfPropelled;083;Friendly;Company;Present;X;Unit, Field Artillery, Howitzer, Rocket, Multi-Rocket Launcher, Multi-Rocket Self-Propelled
+083_F_CO_A_X_fieldArtilleryHowitzerRocketMultiRocketLauncherSelfPropelled;083;Friendly;Company;Anticipated;X;Unit, Field Artillery, Howitzer, Rocket, Multi-Rocket Launcher, Multi-Rocket Self-Propelled
+083_F_BN_P_X_fieldArtilleryHowitzerRocketMultiRocketLauncherSelfPropelled;083;Friendly;Battalion;Present;X;Unit, Field Artillery, Howitzer, Rocket, Multi-Rocket Launcher, Multi-Rocket Self-Propelled
+083_F_BN_A_X_fieldArtilleryHowitzerRocketMultiRocketLauncherSelfPropelled;083;Friendly;Battalion;Anticipated;X;Unit, Field Artillery, Howitzer, Rocket, Multi-Rocket Launcher, Multi-Rocket Self-Propelled
+083_H_CO_P_X_fieldArtilleryHowitzerRocketMultiRocketLauncherSelfPropelled;083;Hostile;Company;Present;X;Unit, Field Artillery, Howitzer, Rocket, Multi-Rocket Launcher, Multi-Rocket Self-Propelled
+084_F_CO_P_X_fieldArtilleryHowitzerRocketMultiRocketLauncherMultiRocketTruck;084;Friendly;Company;Present;X;Unit, Field Artillery, Howitzer, Rocket, Multi-Rocket Launcher, Multi-Rocket Truck
+084_H_CO_P_X_fieldArtilleryHowitzerRocketMultiRocketLauncherMultiRocketTruck;084;Hostile;Company;Present;X;Unit, Field Artillery, Howitzer, Rocket, Multi-Rocket Launcher, Multi-Rocket Truck
+085_H_BN_A_X_fieldArtilleryMortar;085;Hostile;Battalion;Anticipated;X;Unit, Field Artillery, Mortar
+085_H_CO_P_X_fieldArtilleryMortar;085;Hostile;Company;Present;X;Unit, Field Artillery, Mortar
+085_H_CO_A_X_fieldArtilleryMortar;085;Hostile;Company;Anticipated;X;Unit, Field Artillery, Mortar
+085_F_CO_P_X_fieldArtilleryMortar;085;Friendly;Company;Present;X;Unit, Field Artillery, Mortar
+085_H_BN_P_X_fieldArtilleryMortar;085;Hostile;Battalion;Present;X;Unit, Field Artillery, Mortar
+086_F_CO_P_X_fieldArtilleryMortarSelfPropelledTracked;086;Friendly;Company;Present;X;Unit, Field Artillery, Mortar, Self-Propelled Tracked
+087_F_CO_P_X_fieldArtilleryMortarSelfPropelledWheeled;087;Friendly;Company;Present;X;Unit, Field Artillery, Mortar, Self-Propelled Wheeled
+088_F_CO_P_X_fieldArtilleryMortarAmphibious;088;Friendly;Company;Present;X;Unit, Field Artillery, Mortar, Amphibious
+089_H_BDE_A_RED_reconnaissance;089;Hostile;Brigade;Anticipated;Reduced;Unit, Reconnaissance
+089_H_BN_A_X_reconnaissance;089;Hostile;Battalion;Anticipated;X;Unit, Reconnaissance
+089_H_BN_A_RED_reconnaissance;089;Hostile;Battalion;Anticipated;Reduced;Unit, Reconnaissance
+089_H_BN_A_REI_reconnaissance;089;Hostile;Battalion;Anticipated;Reinforced;Unit, Reconnaissance
+089_H_BDE_P_X_reconnaissance;089;Hostile;Brigade;Present;X;Unit, Reconnaissance
+089_H_BDE_P_RED_reconnaissance;089;Hostile;Brigade;Present;Reduced;Unit, Reconnaissance
+089_H_BDE_A_X_reconnaissance;089;Hostile;Brigade;Anticipated;X;Unit, Reconnaissance
+089_H_BN_P_RED_reconnaissance;089;Hostile;Battalion;Present;Reduced;Unit, Reconnaissance
+089_H_BDE_A_REI_reconnaissance;089;Hostile;Brigade;Anticipated;Reinforced;Unit, Reconnaissance
+089_H_BN_P_X_reconnaissance;089;Hostile;Battalion;Present;X;Unit, Reconnaissance
+089_H_BDE_P_REI_reconnaissance;089;Hostile;Brigade;Present;Reinforced;Unit, Reconnaissance
+089_H_PLT_P_X_reconnaissance;089;Hostile;Platoon;Present;X;Unit, Reconnaissance
+089_F_CO_P_X_reconnaissance;089;Friendly;Company;Present;X;Unit, Reconnaissance
+089_H_CO_A_RED_reconnaissance;089;Hostile;Company;Anticipated;Reduced;Unit, Reconnaissance
+089_H_CO_A_X_reconnaissance;089;Hostile;Company;Anticipated;X;Unit, Reconnaissance
+089_H_CO_P_REI_reconnaissance;089;Hostile;Company;Present;Reinforced;Unit, Reconnaissance
+089_H_CO_P_RED_reconnaissance;089;Hostile;Company;Present;Reduced;Unit, Reconnaissance
+089_H_CO_P_X_reconnaissance;089;Hostile;Company;Present;X;Unit, Reconnaissance
+089_H_PLT_A_REI_reconnaissance;089;Hostile;Platoon;Anticipated;Reinforced;Unit, Reconnaissance
+089_H_PLT_A_RED_reconnaissance;089;Hostile;Platoon;Anticipated;Reduced;Unit, Reconnaissance
+089_H_PLT_A_X_reconnaissance;089;Hostile;Platoon;Anticipated;X;Unit, Reconnaissance
+089_H_PLT_P_REI_reconnaissance;089;Hostile;Platoon;Present;Reinforced;Unit, Reconnaissance
+089_H_PLT_P_RED_reconnaissance;089;Hostile;Platoon;Present;Reduced;Unit, Reconnaissance
+089_H_BN_P_REI_reconnaissance;089;Hostile;Battalion;Present;Reinforced;Unit, Reconnaissance
+089_H_CO_A_REI_reconnaissance;089;Hostile;Company;Anticipated;Reinforced;Unit, Reconnaissance
+090_F_CO_P_X_reconnaissanceCavalry;090;Friendly;Company;Present;X;Unit, Reconnaissance, Cavalry
+091_F_BN_P_RED_reconnaissanceCavalryArmored;091;Friendly;Battalion;Present;Reduced;Unit, Reconnaissance, Cavalry, Armored
+091_F_BDE_A_RED_reconnaissanceCavalryArmored;091;Friendly;Brigade;Anticipated;Reduced;Unit, Reconnaissance, Cavalry, Armored
+091_F_BDE_A_X_reconnaissanceCavalryArmored;091;Friendly;Brigade;Anticipated;X;Unit, Reconnaissance, Cavalry, Armored
+091_F_BDE_P_REI_reconnaissanceCavalryArmored;091;Friendly;Brigade;Present;Reinforced;Unit, Reconnaissance, Cavalry, Armored
+091_F_BDE_P_RED_reconnaissanceCavalryArmored;091;Friendly;Brigade;Present;Reduced;Unit, Reconnaissance, Cavalry, Armored
+091_F_BDE_P_X_reconnaissanceCavalryArmored;091;Friendly;Brigade;Present;X;Unit, Reconnaissance, Cavalry, Armored
+091_F_PLT_A_REI_reconnaissanceCavalryArmored;091;Friendly;Platoon;Anticipated;Reinforced;Unit, Reconnaissance, Cavalry, Armored
+091_F_BN_A_REI_reconnaissanceCavalryArmored;091;Friendly;Battalion;Anticipated;Reinforced;Unit, Reconnaissance, Cavalry, Armored
+091_F_BN_A_RED_reconnaissanceCavalryArmored;091;Friendly;Battalion;Anticipated;Reduced;Unit, Reconnaissance, Cavalry, Armored
+091_F_BN_A_X_reconnaissanceCavalryArmored;091;Friendly;Battalion;Anticipated;X;Unit, Reconnaissance, Cavalry, Armored
+091_F_BN_P_REI_reconnaissanceCavalryArmored;091;Friendly;Battalion;Present;Reinforced;Unit, Reconnaissance, Cavalry, Armored
+091_F_BDE_A_REI_reconnaissanceCavalryArmored;091;Friendly;Brigade;Anticipated;Reinforced;Unit, Reconnaissance, Cavalry, Armored
+091_F_BN_P_X_reconnaissanceCavalryArmored;091;Friendly;Battalion;Present;X;Unit, Reconnaissance, Cavalry, Armored
+091_F_CO_A_REI_reconnaissanceCavalryArmored;091;Friendly;Company;Anticipated;Reinforced;Unit, Reconnaissance, Cavalry, Armored
+091_F_CO_A_RED_reconnaissanceCavalryArmored;091;Friendly;Company;Anticipated;Reduced;Unit, Reconnaissance, Cavalry, Armored
+091_F_CO_A_X_reconnaissanceCavalryArmored;091;Friendly;Company;Anticipated;X;Unit, Reconnaissance, Cavalry, Armored
+091_F_CO_P_REI_reconnaissanceCavalryArmored;091;Friendly;Company;Present;Reinforced;Unit, Reconnaissance, Cavalry, Armored
+091_F_CO_P_X_reconnaissanceCavalryArmored;091;Friendly;Company;Present;X;Unit, Reconnaissance, Cavalry, Armored
+091_F_PLT_A_RED_reconnaissanceCavalryArmored;091;Friendly;Platoon;Anticipated;Reduced;Unit, Reconnaissance, Cavalry, Armored
+091_F_PLT_A_X_reconnaissanceCavalryArmored;091;Friendly;Platoon;Anticipated;X;Unit, Reconnaissance, Cavalry, Armored
+091_F_PLT_P_REI_reconnaissanceCavalryArmored;091;Friendly;Platoon;Present;Reinforced;Unit, Reconnaissance, Cavalry, Armored
+091_F_PLT_P_RED_reconnaissanceCavalryArmored;091;Friendly;Platoon;Present;Reduced;Unit, Reconnaissance, Cavalry, Armored
+091_F_PLT_P_X_reconnaissanceCavalryArmored;091;Friendly;Platoon;Present;X;Unit, Reconnaissance, Cavalry, Armored
+091_F_CO_P_RED_reconnaissanceCavalryArmored;091;Friendly;Company;Present;Reduced;Unit, Reconnaissance, Cavalry, Armored
+093_F_CO_P_X_reconnaissanceCavalryAir;093;Friendly;Company;Present;X;Unit, Reconnaissance, Cavalry, Air
+094_F_CO_P_X_reconnaissanceAirAssault;094;Friendly;Company;Present;X;Unit, Reconnaissance, Air Assault
+095_F_CO_P_X_reconnaissanceAirborne;095;Friendly;Company;Present;X;Unit, Reconnaissance, Airborne
+096_F_CO_P_X_reconnaissanceLight;096;Friendly;Company;Present;X;Unit, Reconnaissance, Light
+097_F_CO_P_X_reconnaissanceMarine;097;Friendly;Company;Present;X;Unit, Reconnaissance, Marine
+098_F_CO_P_X_reconnaissanceMarineForce;098;Friendly;Company;Present;X;Unit, Reconnaissance, Marine, Force
+098_F_CO_A_X_reconnaissanceMarineForce;098;Friendly;Company;Anticipated;X;Unit, Reconnaissance, Marine, Force
+098_F_BN_P_X_reconnaissanceMarineForce;098;Friendly;Battalion;Present;X;Unit, Reconnaissance, Marine, Force
+098_F_BN_A_X_reconnaissanceMarineForce;098;Friendly;Battalion;Anticipated;X;Unit, Reconnaissance, Marine, Force
+106_F_CO_P_X_combatSupportNBC;106;Friendly;Company;Present;X;Unit, Combat Support, NBC
+107_F_CO_P_X_combatSupportMilitaryIntelligence;107;Friendly;Company;Present;X;Unit, Combat Support, Military Intelligence
+109_F_CO_P_X_combatSupportLawEnforcementMilitaryPolice;109;Friendly;Company;Present;X;Unit, Combat Support, Law Enforcement, Military Police
+131_F_CO_P_X_combatServiceSupportHq;131;Friendly;Company;Present;X;Unit, Combat Service Support, C2 HQ
+132_F_BDE_P_X_combatServiceSupportHqTOC;132;Friendly;Brigade;Present;X;Unit, Combat Service Support, C2 HQ, TOC
+132_F_BN_P_X_combatServiceSupportHqTOC;132;Friendly;Battalion;Present;X;Unit, Combat Service Support, C2 HQ, TOC
+133_F_BN_P_X_combatServiceSupportHqBDOC;133;Friendly;Battalion;Present;X;Unit, Combat Service Support, C2 HQ, BDOC
+133_F_BDE_P_X_combatServiceSupportHqBDOC;133;Friendly;Brigade;Present;X;Unit, Combat Service Support, C2 HQ, BDOC
+134_F_BN_P_X_combatServiceSupportHqCTCP;134;Friendly;Battalion;Present;X;Unit, Combat Service Support, C2 HQ, CTCP
+134_F_BDE_P_X_combatServiceSupportHqCTCP;134;Friendly;Brigade;Present;X;Unit, Combat Service Support, C2 HQ, CTCP
+135_F_BDE_P_X_combatServiceSupportHqMAIN;135;Friendly;Brigade;Present;X;Unit, Combat Service Support, C2 HQ, MAIN
+136_F_BDE_P_X_combatServiceSupportHqTAC;136;Friendly;Brigade;Present;X;Unit, Combat Service Support, C2 HQ, TAC
+136_F_BN_A_X_combatServiceSupportHqTAC;136;Friendly;Battalion;Anticipated;X;Unit, Combat Service Support, C2 HQ, TAC
+136_F_BN_P_X_combatServiceSupportHqTAC;136;Friendly;Battalion;Present;X;Unit, Combat Service Support, C2 HQ, TAC
+137_F_BDE_P_X_combatServiceSupportHqJTF;137;Friendly;Brigade;Present;X;Unit, Combat Service Support, C2 HQ, JTF
+190_F_X_P_X_equipmentSpecialNBCEquipment;190;Friendly;X;Present;X;Equipment, Special NBC Equipment
+194_F_CO_P_X_specialOperationsForcesGroundSpecialForces;194;Friendly;Company;Present;X;Special Operations Forces, Ground, Special Forces (SF)
+195_F_CO_P_X_specialOperationsForcesGroundPsychologicalOperations ;195;Friendly;Company;Present;X;Special Operations Forces, Ground, Psychological Operations (PSYOP)
+196_F_CO_P_X_specialOperationsForcesGroundPsychologicalOperationsFixedWingAviation;196;Friendly;Company;Present;X;Special Operations Forces, Ground, Psychological Operations, Fixed Wing Aviation
+197_F_CO_P_X_specialOperationsForcesGroundCivilianAffairs;197;Friendly;Company;Present;X;Special Operations Forces, Ground, Civilian Affairs (CA)
+200_H_X_P_X_taskBlock;200;Hostile;X;Present;X;Task, Block
+200_F_X_P_X_taskBlock;200;Friendly;X;Present;X;Task, Block
+201_F_X_P_X_taskDisrupt;201;Friendly;X;Present;X;Task, Disrupt
+201_H_X_P_X_taskDisrupt;201;Hostile;X;Present;X;Task, Disrupt
+202_H_X_P_X_taskFix;202;Hostile;X;Present;X;Task, Fix
+202_F_X_P_X_taskFix;202;Friendly;X;Present;X;Task, Fix
+203_H_X_P_X_taskFollowAndAssume;203;Hostile;X;Present;X;Task, Follow and Assume
+203_F_X_P_X_taskFollowAndAssume;203;Friendly;X;Present;X;Task, Follow and Assume
+204_H_X_P_X_taskFollowAndAssumeFollowAnd Support;204;Hostile;X;Present;X;Task, Follow and Assume, Follow and Support
+204_F_X_P_X_taskFollowAndAssumeFollowAnd Support;204;Friendly;X;Present;X;Task, Follow and Assume, Follow and Support
+205_H_X_P_X_taskDestroy;205;Hostile;X;Present;X;Task, Destroy
+205_F_X_P_X_taskDestroy;205;Friendly;X;Present;X;Task, Destroy
+206_H_X_P_X_taskNeutralize;206;Hostile;X;Present;X;Task, Neutralize
+206_F_X_P_X_taskNeutralize;206;Friendly;X;Present;X;Task, Neutralize
+207_H_X_P_X_taskPenetrate;207;Hostile;X;Present;X;Task, Penetrate
+207_F_X_P_X_taskPenetrate;207;Friendly;X;Present;X;Task, Penetrate
+208_H_X_P_X_taskSecurityScreen;208;Hostile;X;Present;X;Task, Security, Screen
+208_F_X_P_X_taskSecurityScreen;208;Friendly;X;Present;X;Task, Security, Screen
+208_H_X_A_X_taskSecurityScreen;208;Hostile;X;Anticipated;X;Task, Security, Screen
+208_F_X_A_X_taskSecurityScreen;208;Friendly;X;Anticipated;X;Task, Security, Screen
+209_F_X_A_X_taskSecurityGuard;209;Friendly;X;Anticipated;X;Task, Security, Guard
+209_F_X_P_X_taskSecurityGuard;209;Friendly;X;Present;X;Task, Security, Guard
+210_F_X_A_X_taskSecurityCover;210;Friendly;X;Anticipated;X;Task, Security, Cover
+210_F_X_P_X_taskSecurityCover;210;Friendly;X;Present;X;Task, Security, Cover
+213_F_X_P_X_maneuverGeneralCheckPoint;213;Friendly;X;Present;X;C2, Maneuver, General, Check Point
+214_F_X_P_X_maneuverGeneralContactPoint;214;Friendly;X;Present;X;C2, Maneuver, General, Contact Point
+215_F_X_P_X_maneuverGeneralCoordinationPoint;215;Friendly;X;Present;X;C2, Maneuver, General, Coordination Point
+216_F_X_P_X_maneuverGeneralDecisionPoint;216;Friendly;X;Present;X;C2, Maneuver, General, Decision Point
+216_H_X_P_X_maneuverGeneralDecisionPoint;216;Hostile;X;Present;X;C2, Maneuver, General, Decision Point
+217_F_X_P_X_maneuverGeneralPassagePoint;217;Friendly;X;Present;X;C2, Maneuver, General, Passage Point
+218_F_X_P_X_maneuverGeneralReleasePoint;218;Friendly;X;Present;X;C2, Maneuver, General, Release Point
+219_F_X_P_X_maneuverGeneralStartPoint;219;Friendly;X;Present;X;C2, Maneuver, General, Start Point
+220_H_BDE_P_X_maneuverGeneralBoundary;220;Hostile;Brigade;Present;X;C2, Maneuver, General, Boundary
+220_H_BN_P_X_maneuverGeneralBoundary;220;Hostile;Battalion;Present;X;C2, Maneuver, General, Boundary
+220_H_CO_P_X_maneuverGeneralBoundary;220;Hostile;Company;Present;X;C2, Maneuver, General, Boundary
+220_H_PLT_P_X_maneuverGeneralBoundary;220;Hostile;Platoon;Present;X;C2, Maneuver, General, Boundary
+220_F_BDE_P_X_maneuverGeneralBoundary;220;Friendly;Brigade;Present;X;C2, Maneuver, General, Boundary
+220_F_BN_P_X_maneuverGeneralBoundary;220;Friendly;Battalion;Present;X;C2, Maneuver, General, Boundary
+220_F_CO_P_X_maneuverGeneralBoundary;220;Friendly;Company;Present;X;C2, Maneuver, General, Boundary
+220_F_PLT_P_X_maneuverGeneralBoundary;220;Friendly;Platoon;Present;X;C2, Maneuver, General, Boundary
+221_H_X_P_X_maneuverGeneralForwardLineOfTroops;221;Hostile;X;Present;X;C2, Maneuver, General, Forward Line Of Troops
+221_F_X_P_X_maneuverGeneralForwardLineOfTroops;221;Friendly;X;Present;X;C2, Maneuver, General, Forward Line Of Troops
+222_F_X_P_X_maneuverGeneralLineOfContact;222;Friendly;X;Present;X;C2, Maneuver, General, Line Of Contact
+222_H_X_P_X_maneuverGeneralLineOfContact;222;Hostile;X;Present;X;C2, Maneuver, General, Line Of Contact
+223_F_X_P_X_maneuverGeneralPhaseLine;223;Friendly;X;Present;X;C2, Maneuver, General, Phase Line
+223_H_X_P_X_maneuverGeneralPhaseLine;223;Hostile;X;Present;X;C2, Maneuver, General, Phase Line
+224_F_X_P_X_maneuverGeneralGeneralArea;224;Friendly;X;Present;X;C2, Maneuver, General, General Area
+224_H_X_P_X_maneuverGeneralGeneralArea;224;Hostile;X;Present;X;C2, Maneuver, General, General Area
+225_F_X_A_X_maneuverGeneralAssemblyArea;225;Friendly;X;Anticipated;X;C2, Maneuver, General, Assembly Area
+225_F_X_P_X_maneuverGeneralAssemblyArea;225;Friendly;X;Present;X;C2, Maneuver, General, Assembly Area
+225_H_X_P_X_maneuverGeneralAssemblyArea;225;Hostile;X;Present;X;C2, Maneuver, General, Assembly Area
+225_H_X_A_X_maneuverGeneralAssemblyArea;225;Hostile;X;Anticipated;X;C2, Maneuver, General, Assembly Area
+226_H_X_P_X_maneuverGeneralEngagementArea;226;Hostile;X;Present;X;C2, Maneuver, General, Engagement Area
+226_F_X_A_X_maneuverGeneralEngagementArea;226;Friendly;X;Anticipated;X;C2, Maneuver, General, Engagement Area
+226_F_X_P_X_maneuverGeneralEngagementArea;226;Friendly;X;Present;X;C2, Maneuver, General, Engagement Area
+226_H_X_A_X_maneuverGeneralEngagementArea;226;Hostile;X;Anticipated;X;C2, Maneuver, General, Engagement Area
+232_F_X_P_X_maneuverDefenseTargetReferencePoint;232;Friendly;X;Present;X;C2, Maneuver, Defense, Target Reference Point
+233_H_BN_A_X_maneuverDefenseBattlePosition;233;Hostile;Battalion;Anticipated;X;C2, Maneuver, Defense, Battle Position
+233_F_BDE_P_X_maneuverDefenseBattlePosition;233;Friendly;Brigade;Present;X;C2, Maneuver, Defense, Battle Position
+233_F_BDE_A_X_maneuverDefenseBattlePosition;233;Friendly;Brigade;Anticipated;X;C2, Maneuver, Defense, Battle Position
+233_F_CO_P_X_maneuverDefenseBattlePosition;233;Friendly;Company;Present;X;C2, Maneuver, Defense, Battle Position
+233_H_BDE_A_X_maneuverDefenseBattlePosition;233;Hostile;Brigade;Anticipated;X;C2, Maneuver, Defense, Battle Position
+233_F_BN_A_X_maneuverDefenseBattlePosition;233;Friendly;Battalion;Anticipated;X;C2, Maneuver, Defense, Battle Position
+233_F_BN_P_X_maneuverDefenseBattlePosition;233;Friendly;Battalion;Present;X;C2, Maneuver, Defense, Battle Position
+233_H_CO_A_X_maneuverDefenseBattlePosition;233;Hostile;Company;Anticipated;X;C2, Maneuver, Defense, Battle Position
+233_H_CO_P_X_maneuverDefenseBattlePosition;233;Hostile;Company;Present;X;C2, Maneuver, Defense, Battle Position
+233_F_CO_A_X_maneuverDefenseBattlePosition;233;Friendly;Company;Anticipated;X;C2, Maneuver, Defense, Battle Position
+233_F_PLT_P_X_maneuverDefenseBattlePosition;233;Friendly;Platoon;Present;X;C2, Maneuver, Defense, Battle Position
+233_H_BDE_P_X_maneuverDefenseBattlePosition;233;Hostile;Brigade;Present;X;C2, Maneuver, Defense, Battle Position
+233_F_PLT_A_X_maneuverDefenseBattlePosition;233;Friendly;Platoon;Anticipated;X;C2, Maneuver, Defense, Battle Position
+233_H_BN_P_X_maneuverDefenseBattlePosition;233;Hostile;Battalion;Present;X;C2, Maneuver, Defense, Battle Position
+233_H_PLT_P_X_maneuverDefenseBattlePosition;233;Hostile;Platoon;Present;X;C2, Maneuver, Defense, Battle Position
+233_H_PLT_A_X_maneuverDefenseBattlePosition;233;Hostile;Platoon;Anticipated;X;C2, Maneuver, Defense, Battle Position
+234_H_X_A_X_maneuverDefenseEngagementArea;234;Hostile;X;Anticipated;X;C2, Maneuver, Defense, Engagement Area
+234_F_X_P_X_maneuverDefenseEngagementArea;234;Friendly;X;Present;X;C2, Maneuver, Defense, Engagement Area
+234_H_X_P_X_maneuverDefenseEngagementArea;234;Hostile;X;Present;X;C2, Maneuver, Defense, Engagement Area
+234_F_X_A_X_maneuverDefenseEngagementArea;234;Friendly;X;Anticipated;X;C2, Maneuver, Defense, Engagement Area
+235_F_X_P_X_maneuverOffensePointOfDeparture;235;Friendly;X;Present;X;C2, Maneuver, Offense, Point of Departure
+238_F_X_A_X_maneuverOffenseAxisOfAdvanceAttack;238;Friendly;X;Anticipated;X;C2, Maneuver, Offense, Axis of Advance, Attack
+238_F_X_P_X_maneuverOffenseAxisOfAdvanceAttack;238;Friendly;X;Present;X;C2, Maneuver, Offense, Axis of Advance, Attack
+239_H_X_A_X_maneuverOffenseAxisOfAdvanceGroundMainAttack;239;Hostile;X;Anticipated;X;C2, Maneuver, Offense, Axis of Advance, Ground Main Attack
+239_H_X_P_X_maneuverOffenseAxisOfAdvanceGroundMainAttack;239;Hostile;X;Present;X;C2, Maneuver, Offense, Axis of Advance, Ground Main Attack
+239_F_X_A_X_maneuverOffenseAxisOfAdvanceGroundMainAttack;239;Friendly;X;Anticipated;X;C2, Maneuver, Offense, Axis of Advance, Ground Main Attack
+239_F_X_P_X_maneuverOffenseAxisOfAdvanceGroundMainAttack;239;Friendly;X;Present;X;C2, Maneuver, Offense, Axis of Advance, Ground Main Attack
+240_H_X_A_X_maneuverOffenseAxisOfAdvanceGroundMainAttack;240;Hostile;X;Anticipated;X;C2, Maneuver, Offense, Axis of Advance, Ground Main Attack
+240_H_X_P_X_maneuverOffenseAxisOfAdvanceGroundMainAttack;240;Hostile;X;Present;X;C2, Maneuver, Offense, Axis of Advance, Ground Main Attack
+240_F_X_A_X_maneuverOffenseAxisOfAdvanceGroundMainAttack;240;Friendly;X;Anticipated;X;C2, Maneuver, Offense, Axis of Advance, Ground Main Attack
+240_F_X_P_X_maneuverOffenseAxisOfAdvanceGroundMainAttack;240;Friendly;X;Present;X;C2, Maneuver, Offense, Axis of Advance, Ground Main Attack
+241_H_X_A_X_maneuverOffenseAxisOfAdvanceGroundSupportAttack;241;Hostile;X;Anticipated;X;C2, Maneuver, Offense, Axis of Advance, Ground, Support Attack
+241_H_X_P_X_maneuverOffenseAxisOfAdvanceGroundSupportAttack;241;Hostile;X;Present;X;C2, Maneuver, Offense, Axis of Advance, Ground, Support Attack
+241_F_X_A_X_maneuverOffenseAxisOfAdvanceGroundSupportAttack;241;Friendly;X;Anticipated;X;C2, Maneuver, Offense, Axis of Advance, Ground, Support Attack
+241_F_X_P_X_maneuverOffenseAxisOfAdvanceGroundSupportAttack;241;Friendly;X;Present;X;C2, Maneuver, Offense, Axis of Advance, Ground, Support Attack
+242_F_X_P_X_maneuverOffenseFinalCoordinationLine;242;Friendly;X;Present;X;C2, Maneuver, Offense, Final Coordination Line
+243_F_X_P_X_maneuverOffenseLimitOfAdvance;243;Friendly;X;Present;X;C2, Maneuver, Offense, Limit of Advance
+244_F_X_P_X_maneuverOffenseLineOfDepartureLineOfContact;244;Friendly;X;Present;X;C2, Maneuver, Offense, Line of Departure/Line of Contact
+245_F_X_P_X_maneuverOffenseAssaultPosition;245;Friendly;X;Present;X;C2, Maneuver, Offense, Assault Position
+245_H_X_P_X_maneuverOffenseAssaultPosition;245;Hostile;X;Present;X;C2, Maneuver, Offense, Assault Position
+246_H_X_P_X_maneuverOffenseAttackPosition;246;Hostile;X;Present;X;C2, Maneuver, Offense, Attack Position
+246_F_X_P_X_maneuverOffenseAttackPosition;246;Friendly;X;Present;X;C2, Maneuver, Offense, Attack Position
+247_H_X_A_X_maneuverOffenseAttackByFirePosition;247;Hostile;X;Anticipated;X;C2, Maneuver, Offense, Attack By Fire Position
+247_H_X_P_X_maneuverOffenseAttackByFirePosition;247;Hostile;X;Present;X;C2, Maneuver, Offense, Attack By Fire Position
+247_F_X_P_X_maneuverOffenseAttackByFirePosition;247;Friendly;X;Present;X;C2, Maneuver, Offense, Attack By Fire Position
+247_F_X_A_X_maneuverOffenseAttackByFirePosition;247;Friendly;X;Anticipated;X;C2, Maneuver, Offense, Attack By Fire Position
+248_F_X_P_X_maneuverOffenseSupportByFirePosition;248;Friendly;X;Present;X;C2, Maneuver, Offense, Support By Fire Position
+248_F_X_A_X_maneuverOffenseSupportByFirePosition;248;Friendly;X;Anticipated;X;C2, Maneuver, Offense, Support By Fire Position
+248_H_X_P_X_maneuverOffenseSupportByFirePosition;248;Hostile;X;Present;X;C2, Maneuver, Offense, Support By Fire Position
+248_H_X_A_X_maneuverOffenseSupportByFirePosition;248;Hostile;X;Anticipated;X;C2, Maneuver, Offense, Support By Fire Position
+249_H_X_A_X_maneuverOffenseObjective;249;Hostile;X;Anticipated;X;C2, Maneuver, Offense, Objective
+249_F_X_P_X_maneuverOffenseObjective;249;Friendly;X;Present;X;C2, Maneuver, Offense, Objective
+249_H_X_P_X_maneuverOffenseObjective;249;Hostile;X;Present;X;C2, Maneuver, Offense, Objective
+249_F_X_A_X_maneuverOffenseObjective;249;Hostile;X;Anticipated;X;C2, Maneuver, Offense, Objective
+250_F_X_P_X_maneuverOffenseNamedAreaOfInterest;250;Friendly;X;Present;X;C2, Maneuver, Offense, Named Area of Interest
+251_F_X_P_X_maneuverOffenseTargetedAreaOfInterest;251;Friendly;X;Present;X;C2, Maneuver, Offense, Targeted Area of Interest
+252_F_X_P_X_mobilitySurvivabilityObstacleGeneralBelt;252;Friendly;X;Present;X;Mobility/Survivability, Obstacle, General, Belt
+253_F_X_P_X_mobilitySurvivabilityObstacleGeneralZone;253;Friendly;X;Present;X;Mobility/Survivability, Obstacle, General, Zone
+254_F_X_P_X_mobilitySurvivabilityObstacleAntitankDitchComplete;254;Friendly;X;Present;X;Mobility/Survivability, Obstacle, Antitank Ditch (complete)
+254_H_X_P_X_mobilitySurvivabilityObstacleAntitankDitchComplete;254;Hostile;X;Present;X;Mobility/Survivability, Obstacle, Antitank Ditch (complete)
+257_F_X_P_X_mobilitySurvivabilityObstacleMinefieldStatic;257;Friendly;X;Present;X;Mobility/Survivability, Obstacle, Minefield, Static
+257_H_X_P_X_mobilitySurvivabilityObstacleMinefieldStatic;257;Hostile;X;Present;X;Mobility/Survivability, Obstacle, Minefield, Static
+258_F_X_P_X_mobilitySurvivabilityObstacleEffectBlock;258;Friendly;X;Present;X;Mobility/Survivability, Obstacle, Effect Block
+259_F_X_P_X_mobilitySurvivabilityObstacleEffectTurn;259;Friendly;X;Present;X;Mobility/Survivability, Obstacle, Effect Turn
+260_F_X_P_X_mobilitySurvivabilityObstacleTripleStrandConcertina;260;Friendly;X;Present;X;Mobility/Survivability, Obstacle, Triple Strand Concertina
+261_F_X_P_X_mobilitySurvivabilityObstacleBypassBridgeOrGap;261;Friendly;X;Present;X;Mobility/Survivability, Obstacle Bypass, Bridge or Gap
+262_F_X_P_X_mobilitySurvivabilityObstacleBypassLane;262;Friendly;X;Present;X;Mobility/Survivability, Obstacle Bypass, Lane
+263_H_BN_A_X_mobilitySurvivabilityStrongPoint;263;Hostile;Battalion;Anticipated;X;Mobility/Survivability, Strong Point
+263_F_PLT_P_X_mobilitySurvivabilityStrongPoint;263;Friendly;Platoon;Present;X;Mobility/Survivability, Strong Point
+263_H_BDE_P_X_mobilitySurvivabilityStrongPoint;263;Hostile;Brigade;Present;X;Mobility/Survivability, Strong Point
+263_H_BN_P_X_mobilitySurvivabilityStrongPoint;263;Hostile;Battalion;Present;X;Mobility/Survivability, Strong Point
+263_F_PLT_A_X_mobilitySurvivabilityStrongPoint;263;Friendly;Platoon;Anticipated;X;Mobility/Survivability, Strong Point
+263_F_CO_A_X_mobilitySurvivabilityStrongPoint;263;Friendly;Company;Anticipated;X;Mobility/Survivability, Strong Point
+263_F_BN_P_X_mobilitySurvivabilityStrongPoint;263;Friendly;Battalion;Present;X;Mobility/Survivability, Strong Point
+263_F_BN_A_X_mobilitySurvivabilityStrongPoint;263;Friendly;Battalion;Anticipated;X;Mobility/Survivability, Strong Point
+263_F_BDE_P_X_mobilitySurvivabilityStrongPoint;263;Friendly;Brigade;Present;X;Mobility/Survivability, Strong Point
+263_H_CO_A_X_mobilitySurvivabilityStrongPoint;263;Hostile;Company;Anticipated;X;Mobility/Survivability, Strong Point
+263_H_CO_P_X_mobilitySurvivabilityStrongPoint;263;Hostile;Company;Present;X;Mobility/Survivability, Strong Point
+263_F_CO_P_X_mobilitySurvivabilityStrongPoint;263;Friendly;Company;Present;X;Mobility/Survivability, Strong Point
+263_H_PLT_A_X_mobilitySurvivabilityStrongPoint;263;Hostile;Platoon;Anticipated;X;Mobility/Survivability, Strong Point
+263_H_BDE_A_X_mobilitySurvivabilityStrongPoint;263;Hostile;Brigade;Anticipated;X;Mobility/Survivability, Strong Point
+263_F_BDE_A_X_mobilitySurvivabilityStrongPoint;263;Friendly;Brigade;Anticipated;X;Mobility/Survivability, Strong Point
+263_H_PLT_P_X_mobilitySurvivabilityStrongPoint;263;Hostile;Platoon;Present;X;Mobility/Survivability, Strong Point
+268_F_X_P_X_fireSupportFinalProtectiveFire;268;Friendly;X;Present;X;Fire Support, Final Protective Fire
+269_F_X_P_X_fireSupportFireSupportCoordinationLine;269;Friendly;X;Present;X;Fire Support, Fire Support Coordination Line
+270_F_X_P_X_fireSupportCoordinatedFireLine;270;Friendly;X;Present;X;Fire Support, Coordinated Fire Line
+293_F_BN_A_REI_combatServiceSupportSupply;293;Friendly;Battalion;Anticipated;Reinforced;Unit, Combat Service Support, Supply
+293_F_BDE_A_REI_combatServiceSupportSupply;293;Friendly;Brigade;Anticipated;Reinforced;Unit, Combat Service Support, Supply
+295_F_X_P_X_taskSeize;295;Friendly;X;Present;X;Task, Seize
+295_H_X_P_X_taskSeize;295;Hostile;X;Present;X;Task, Seize
+296_H_X_P_X_taskBreach;296;Hostile;X;Present;X;Task, Breach
+296_F_X_P_X_taskBreach;296;Friendly;X;Present;X;Task, Breach
+297_F_X_P_X_taskSecure;297;Friendly;X;Present;X;Task, Secure
+297_H_X_P_X_taskSecure;297;Hostile;X;Present;X;Task, Secure
+298_F_X_P_X_taskCounterattack;298;Friendly;X;Present;X;Task, Counterattack (CATK)
+298_H_X_P_X_taskCounterattack;298;Hostile;X;Present;X;Task, Counterattack (CATK)
+299_F_X_P_X_taskCounterattackByFire;299;Friendly;X;Present;X;Task, Counterattack by Fire
+299_H_X_P_X_taskCounterattackByFire;299;Hostile;X;Present;X;Task, Counterattack by Fire
+307_H_X_P_X_taskClear;307;Hostile;X;Present;X;Task, Clear
+307_F_X_P_X_taskClear;307;Friendly;X;Present;X;Task, Clear
+308_F_X_P_X_taskOccupy;308;Friendly;X;Present;X;Task, Occupy
+308_H_X_P_X_taskOccupy;308;Hostile;X;Present;X;Task, Occupy
+309_F_X_P_X_taskBypass;309;Friendly;X;Present;X;Task, Bypass
+309_H_X_P_X_taskBypass;309;Hostile;X;Present;X;Task, Bypass
+310_F_X_P_X_taskRetain;310;Friendly;X;Present;X;Task, Retain
+310_H_X_P_X_taskRetain;310;Hostile;X;Present;X;Task, Retain
+311_F_X_P_X_taskWithdraw;311;Friendly;X;Present;X;Task, Withdraw
+311_H_X_P_X_taskWithdraw;311;Hostile;X;Present;X;Task, Withdraw
+312_F_X_A_X_maneuverOffenseLinesAxisOfAdvanceGroundSupportingAttack;312;Friendly;X;Anticipated;X;C2, Maneuver, Offense, Lines, Axis of Advance, Ground, Supporting Attack
+312_H_X_A_X_maneuverOffenseLinesAxisOfAdvanceGroundSupportingAttack;312;Hostile;X;Anticipated;X;C2, Maneuver, Offense, Lines, Axis of Advance, Ground, Supporting Attack
+312_H_X_P_X_maneuverOffenseLinesAxisOfAdvanceGroundSupportingAttack;312;Hostile;X;Present;X;C2, Maneuver, Offense, Lines, Axis of Advance, Ground, Supporting Attack
+312_H_X_A_X_maneuverOffenseLinesAxisOfAdvanceGroundSupportingAttack;312;Hostile;X;Anticipated;X;C2, Maneuver, Offense, Lines, Axis of Advance, Ground, Supporting Attack

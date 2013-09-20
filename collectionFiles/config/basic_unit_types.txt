@@ -1,0 +1,13 @@
+Friendly Ground Unit
+Friendly Sea Surface Unit
+Friendly Air Unit
+Friendly Subsurface Unit
+Hostile Ground Unit
+Hostile Air Unit
+Hostile Subsurface Unit
+Neutral Ground Unit
+Neutral Air Unit
+Neutral Subsurface Unit
+Unknown Ground Unit
+Unknown Air Unit
+Unknown Subsurface Unit

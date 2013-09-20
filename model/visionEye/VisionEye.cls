@@ -1,0 +1,4 @@
+obstacleGeneralBelt
+obstacleGeneralZone
+strongPoint
+tripleStrandConcertina

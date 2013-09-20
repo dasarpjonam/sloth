@@ -1,0 +1,4 @@
+Friendly Unit
+Enemy Unit
+Friendly Ground Unit
+Enemy Ground Unit

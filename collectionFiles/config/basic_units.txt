@@ -1,0 +1,34 @@
+Air Defense
+Ammunition
+Anti-tank
+Armor
+Artillery
+Aviation
+Bridging
+Combat Service Support
+Engineer
+Electronic Warfare
+Explosive Ordnance Disposal
+Fuel
+Hospital
+HQ
+Infantry
+Maintenance
+Medical
+Meteorological
+Missile
+Mortar
+Military Police
+Navy
+NBC Defense
+Ordnance
+Radar
+Psychological Operations
+Reconnaissance
+Signals
+Special Forces
+Special Operations Forces
+Supply
+Topographical
+Transportation
+Unmanned Air Vehicle

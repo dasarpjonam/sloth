@@ -1,0 +1,1 @@
+java -classpath .;tamuCollection.jar org.ladder.collection.SimpleCollection config\complex_units.txt true data\complex_units . false

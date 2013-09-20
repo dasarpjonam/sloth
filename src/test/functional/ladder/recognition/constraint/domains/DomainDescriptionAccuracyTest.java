@@ -1,0 +1,435 @@
+/**
+ * DomainDescriptionAccuracyTest.java
+ * 
+ * Revision History:<br>
+ * Oct 6, 2008 bde - File created
+ * 
+ * <p>
+ * 
+ * <pre>
+ * This work is released under the BSD License:
+ * (C) 2008 Sketch Recognition Lab, Texas A&amp;M University (hereafter SRL @ TAMU)
+ * All rights reserved.
+ * 
+ * Redistribution and use in source and binary forms, with or without
+ * modification, are permitted provided that the following conditions are met:
+ *     * Redistributions of source code must retain the above copyright
+ *       notice, this list of conditions and the following disclaimer.
+ *     * Redistributions in binary form must reproduce the above copyright
+ *       notice, this list of conditions and the following disclaimer in the
+ *       documentation and/or other materials provided with the distribution.
+ *     * Neither the name of the Sketch Recognition Lab, Texas A&amp;M University 
+ *       nor the names of its contributors may be used to endorse or promote 
+ *       products derived from this software without specific prior written 
+ *       permission.
+ * 
+ * THIS SOFTWARE IS PROVIDED BY SRL @ TAMU ``AS IS'' AND ANY
+ * EXPRESS OR IMPLIED WARRANTIES, INCLUDING, BUT NOT LIMITED TO, THE IMPLIED
+ * WARRANTIES OF MERCHANTABILITY AND FITNESS FOR A PARTICULAR PURPOSE ARE
+ * DISCLAIMED. IN NO EVENT SHALL SRL @ TAMU BE LIABLE FOR ANY
+ * DIRECT, INDIRECT, INCIDENTAL, SPECIAL, EXEMPLARY, OR CONSEQUENTIAL DAMAGES
+ * (INCLUDING, BUT NOT LIMITED TO, PROCUREMENT OF SUBSTITUTE GOODS OR SERVICES;
+ * LOSS OF USE, DATA, OR PROFITS; OR BUSINESS INTERRUPTION) HOWEVER CAUSED AND
+ * ON ANY THEORY OF LIABILITY, WHETHER IN CONTRACT, STRICT LIABILITY, OR TORT
+ * (INCLUDING NEGLIGENCE OR OTHERWISE) ARISING IN ANY WAY OUT OF THE USE OF THIS
+ * SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
+ * </pre>
+ */
+package test.functional.ladder.recognition.constraint.domains;
+
+import java.io.File;
+import java.io.FileWriter;
+import java.io.IOException;
+import java.text.DecimalFormat;
+import java.util.ArrayList;
+import java.util.Calendar;
+import java.util.GregorianCalendar;
+import java.util.HashMap;
+import java.util.List;
+import java.util.Map;
+
+import javax.xml.parsers.ParserConfigurationException;
+
+import org.apache.log4j.Logger;
+import org.ladder.core.config.LadderConfig;
+import org.ladder.core.logging.LadderLogger;
+import org.ladder.io.ShapeDirFilter;
+import org.ladder.io.UnknownSketchFileTypeException;
+import org.ladder.recognition.constraint.CALVIN;
+import org.ladder.recognition.constraint.domains.DomainDefinition;
+import org.ladder.recognition.constraint.domains.ShapeDefinition;
+import org.ladder.recognition.constraint.domains.compiler.DomainDefinitionCompiler;
+import org.ladder.recognition.constraint.domains.io.DomainDefinitionInputDOM;
+import org.ladder.recognition.recognizer.OverTimeException;
+import org.xml.sax.SAXException;
+
+import test.functional.ladder.recognition.shapes.DomainAccuracy;
+
+public class DomainDescriptionAccuracyTest {
+	
+	private static final Logger log = LadderLogger
+	        .getLogger(DomainDescriptionAccuracyTest.class);
+	
+	private DomainAccuracy m_domainAccuracy;
+	
+	private Map<String, Boolean> m_hasBeenTested = new HashMap<String, Boolean>();
+	
+	public static final int S_NO_SAMPLING = -1;
+	
+	
+	/**
+	 * Method calculates the accuracy of a domainDefinition across a set of
+	 * sample data.
+	 * 
+	 * @param domainDefinition
+	 *            File of the domainDefinition
+	 * @param testDataDirectory
+	 *            Directory of the testing shapes
+	 * @throws UnknownSketchFileTypeException
+	 * @throws IOException
+	 * @throws SAXException
+	 * @throws ParserConfigurationException
+	 */
+	public DomainDescriptionAccuracyTest(File domainDefinition,
+	        File testDataDirectory, int sample)
+	        throws ParserConfigurationException, SAXException, IOException,
+	        UnknownSketchFileTypeException {
+		
+		this(domainDefinition, testDataDirectory, null, sample);
+		
+	}
+	
+	ShapeDefinitionAccuracyFactory st = new ShapeDefinitionAccuracyFactory();
+	
+	
+	/**
+	 * Method calculates the accuracy of a domainDefinition across a set of
+	 * sample data. Also, passed a file to allow data to saved.
+	 * 
+	 * @param domainDefinition
+	 * @param testDataDirectory
+	 * @param outputFile
+	 * @throws ParserConfigurationException
+	 * @throws SAXException
+	 * @throws IOException
+	 * @throws UnknownSketchFileTypeException
+	 */
+	public DomainDescriptionAccuracyTest(File domainDefinition,
+	        File testDataDirectory, File outputFile, int sample)
+	        throws ParserConfigurationException, SAXException, IOException,
+	        UnknownSketchFileTypeException {
+		
+		DomainDefinition domain = new DomainDefinitionInputDOM()
+		        .readDomainDefinitionFromFile(domainDefinition);
+		DomainDefinitionCompiler compiler = new DomainDefinitionCompiler(domain);
+		try {
+			compiler.compile();
+		}
+		catch (Exception e1) {
+			System.err.println("Compile error:" + e1);
+		}
+		
+		final long ddatStartTime = System.currentTimeMillis();
+		m_domainAccuracy = new DomainAccuracy();
+		m_domainAccuracy.setOutputWriter(new FileWriter(outputFile, true));
+		
+		checkDomainDefinition(domainDefinition, testDataDirectory,
+		        m_domainAccuracy.getOutputWriter());
+		
+		for (ShapeDefinition shapeDef : domain.getShapeDefinitions()) {
+			String shapeDefName = shapeDef.getName();
+			
+			// Check to see if we've already tested this shape. We have multiple
+			// definitions for the same set of data. We only need to run over
+			// the data ONCE.
+			String shapeDefNameKey = ShapeDefinitionTestDataMapping
+			        .getKey(shapeDefName);
+			Boolean hasBeenTested = m_hasBeenTested.get(shapeDefNameKey);
+			if (hasBeenTested != null) {
+				continue;
+			}
+			m_hasBeenTested.put(shapeDefNameKey, new Boolean(true));
+			
+			List<File> shapeDirs = ShapeDefinitionTestDataMapping
+			        .getTestDataDirectories(shapeDefName);
+			
+			if (shapeDirs != null) {
+				for (File shapeDir : shapeDirs) {
+					// log.debug("processing shapeDir: "
+					// + shapeDir.getName());
+					// st = null;
+					st.createFactory(ddatStartTime, shapeDef.getName(),
+					        shapeDir, domainDefinition, outputFile, sample);
+					
+					m_domainAccuracy.add(st.getShapeClassAccuracy());
+					m_domainAccuracy.writeAccuracyAverage();
+					m_domainAccuracy.writePrecisionAverage(3);
+					m_domainAccuracy.writePrecisionAverage(20);
+					// m_domainAccuracy.writeTotalErrorCount();
+					log.debug("Current Accuracy Average = "
+					          + m_domainAccuracy.getAccuracyAverage());
+					int prec = 3;
+					log.debug("Current precision @ " + prec + " average = "
+					          + m_domainAccuracy.getPrecisionAverage(prec));
+					prec = 20;
+					log.debug("Current precision @ " + prec + " average = "
+					          + m_domainAccuracy.getPrecisionAverage(prec));
+					// System.out.println("Current Total Paleo Errors = "
+					// + m_domainAccuracy
+					// .getLowLevelErrorCount());
+					// System.out.println("Current Total Calvin Errors = "
+					// + m_domainAccuracy
+					// .getHighLevelErrorCount());
+					// System.out.println("\n");
+					// }
+					
+				}
+			}
+			// }
+			else {
+				log.debug("No data directories for shape " + shapeDefName
+				          + "\n");
+			}
+		}
+		
+		// Pseudo-profile logging
+		CALVIN.S_RUN_TIME_LOGGER.logAveragedResults();
+		
+		m_domainAccuracy.writeWrongInterpretationCount();
+		// m_domainAccuracy.writeMissedExamplesFiles();
+		m_domainAccuracy.writeStatsAllClasses();
+		m_domainAccuracy.writeAccuracyOverall();
+		m_domainAccuracy.writeAccuracyAverage();
+		// This Number should not be hard coded.
+		// m_domainAccuracy.writeAccuracyAverage(75);
+		m_domainAccuracy.writePrecisionOverall(3);
+		m_domainAccuracy.writePrecisionAverage(3);
+		// m_domainAccuracy.writePrecisionAverage(3, 75);
+		log.debug("OVERALL ACCURACY: "
+		          + m_domainAccuracy.getAccuracyAverageString());
+		log.debug("OVERALL RECALL@3 at Full Data Set: "
+		          + m_domainAccuracy.getPrecisionAverageString(3));
+		log.debug("OVERALL RECALL@20 at Full Data Set: "
+		          + m_domainAccuracy.getPrecisionAverageString(20));
+		// System.out.println("Accuracy at 75: "
+		// + m_domainAccuracy.getAccuracyAverage(75));
+	}
+	
+
+	/**
+	 * Ensures that the test data we are using is only those shapes listed in
+	 * the domain definition
+	 * 
+	 * @param domainDefinition
+	 * @param testDataDirectory
+	 * @return
+	 * @throws ParserConfigurationException
+	 * @throws SAXException
+	 * @throws IOException
+	 */
+	private File[] getTestDataFromDirectory(File domainDefinition,
+	        File testDataDirectory) throws ParserConfigurationException,
+	        SAXException, IOException {
+		
+		ArrayList<String> shapeList = getShapeStringsFromDomainDescription(domainDefinition);
+		
+		ArrayList<File> shapeDirArr = new ArrayList<File>();
+		
+		File[] allTestDataDirs = testDataDirectory
+		        .listFiles(new ShapeDirFilter());
+		
+		for (int i = 0; i < allTestDataDirs.length; i++) {
+			if (shapeList.contains(allTestDataDirs[i].getName())) {
+				shapeDirArr.add(allTestDataDirs[i]);
+			}
+		}
+		
+		File[] shapeDirs = new File[shapeDirArr.size()];
+		
+		for (int i = 0; i < shapeDirArr.size(); i++) {
+			shapeDirs[i] = shapeDirArr.get(i);
+		}
+		
+		return shapeDirs;
+	}
+	
+
+	/**
+	 * Given a domain definition, return a array list of all the shapes in the
+	 * domain definition.
+	 * 
+	 * @param domainDefinition
+	 * @return
+	 * @throws ParserConfigurationException
+	 * @throws SAXException
+	 * @throws IOException
+	 */
+	private static ArrayList<String> getShapeStringsFromDomainDescription(
+	        File domainDefinition) throws ParserConfigurationException,
+	        SAXException, IOException {
+		
+		DomainDefinitionInputDOM ddi = new DomainDefinitionInputDOM();
+		
+		DomainDefinition dd = ddi
+		        .readDomainDefinitionFromFile(domainDefinition);
+		
+		List<ShapeDefinition> shapesInDomainDef = dd.getShapeDefinitions();
+		
+		ArrayList<String> shapeList = new ArrayList<String>();
+		
+		for (ShapeDefinition sd : shapesInDomainDef) {
+			shapeList.add(sd.getName());
+		}
+		
+		return shapeList;
+	}
+	
+
+	/**
+	 * Return the accuracy of the domainDescription on a test of sample data
+	 * 
+	 * @return
+	 */
+	public double getAccuracy() {
+		return m_domainAccuracy.getAccuracyAverage();
+	}
+	
+
+	/**
+	 * Getter to get back what shapes were miss recognized as.
+	 * 
+	 * @return
+	 */
+	public HashMap<String, Integer> getMissRecognitions() {
+		return m_domainAccuracy.getWrongInterpretationCount();
+	}
+	
+
+	public void printMissRecognitions() {
+		m_domainAccuracy.writeWrongInterpretationCount();
+	}
+	
+
+	public static void main(String[] args) throws Exception {
+		
+		File testData;
+		File domainDefinition;
+		File domainTestOutput;
+		int sample = -1;
+		
+		log.debug("\n\n***************************************************");
+		log.debug("NEW DOMAIN DEF TEST RUN");
+		log.debug("***************************************************\n\n");
+		
+		if (args.length < 2) {
+			log
+			        .debug("Usage: DomainDefTest testDataDir domainDefXMLFile reportingOutputFile");
+			log
+			        .debug("\ttestDataDir : top-level directory that contains the subdirectories of test data examples");
+			log
+			        .debug("\tdomainDefXMLFile : domain definition file controlling which shapes can be recognized");
+			log
+			        .debug("\treportingOutputFile : file to write the results of the test to");
+			log
+			        .debug("\tsample: How many files from each folder you want to sample, -1 for ALL data in dirs. Only samples if num files in dir > sample. [optional, defaults to -1]");
+			
+			testData = new File(LadderConfig.getProperty("testData"));
+			domainDefinition = new File(LadderConfig
+			        .getProperty(LadderConfig.DOMAIN_DESC_LOC_KEY)
+			                            + "COA.xml");
+			
+			domainTestOutput = new File(createAndReturnDARPADir(),
+			        getOutFileString());
+			
+		}
+		else {
+			testData = new File(args[0]);
+			domainDefinition = new File(args[1]);
+			
+            if (args.length > 2) {
+                domainTestOutput = new File(args[2]);
+            }
+            else {
+                domainTestOutput = new File(createAndReturnDARPADir(), getOutFileString());
+            }
+			
+			// optional
+			if (args.length > 3) {
+				sample = Integer.parseInt(args[3]);
+			}
+		}
+		
+		domainTestOutput.delete();
+		
+		log.debug("Output file of this run going to: "
+		          + domainTestOutput.getAbsolutePath());
+		
+		new DomainDescriptionAccuracyTest(domainDefinition, testData,
+		        domainTestOutput, sample);
+		
+	}
+	
+
+	public static String getOutFileString() {
+		String userName = System.getProperty("user.name");
+		
+		Calendar cal = new GregorianCalendar();
+		DecimalFormat df = new DecimalFormat("##00");
+		int year = cal.get(Calendar.YEAR);
+		int month = cal.get(Calendar.MONTH) + 1;
+		int day = cal.get(Calendar.DAY_OF_MONTH);
+		int hour = cal.get(Calendar.HOUR_OF_DAY);
+		int minute = cal.get(Calendar.MINUTE);
+		String timeStamp = df.format(year) + "-" + df.format(month) + "-"
+		                   + df.format(day) + "-" + df.format(hour) + "."
+		                   + df.format(minute);
+		
+		return "ddat_" + userName + "_" + timeStamp + ".txt";
+	}
+	
+
+	public static File createAndReturnDARPADir() {
+		String userHomeDir = System.getProperty("user.home");
+		
+		final String DARPA_DIR_NAME = userHomeDir + "/Darpa/ddat/";
+		final File DARPA_DIR = new File(DARPA_DIR_NAME);
+		if (!DARPA_DIR.exists()) {
+			DARPA_DIR.mkdirs();
+		}
+		log.debug("PUTTING OUTPUT FILE INTO " + DARPA_DIR.getAbsolutePath());
+		
+		return DARPA_DIR;
+	}
+	
+
+	/**
+	 * This method compares the domain definition to the directory of test data
+	 * 
+	 * @param domainDefinition
+	 * @param testData
+	 * @param outputWriter
+	 * @throws ParserConfigurationException
+	 * @throws SAXException
+	 * @throws IOException
+	 */
+	private void checkDomainDefinition(File domainDefinition,
+	        File testDataDirectory, FileWriter outputWriter)
+	        throws ParserConfigurationException, SAXException, IOException {
+		log.debug("Checking Domain Definition");
+		
+		// Make a set listing each of the names of the directories in the
+		// testData directory
+		File[] shapeTestDirs = testDataDirectory
+		        .listFiles(new ShapeDirFilter());
+		
+		ArrayList<String> shapeList = getShapeStringsFromDomainDescription(domainDefinition);
+		
+		for (int i = 0; i < shapeTestDirs.length; i++) {
+			if (!shapeList.contains(shapeTestDirs[i].getName())) {
+				outputWriter.write("Missing " + shapeTestDirs[i].getName()
+				                   + " From Domain Definition \n");
+				outputWriter.flush();
+			}
+		}
+	}
+}

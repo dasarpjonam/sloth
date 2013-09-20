@@ -1,0 +1,54 @@
+This file briefly describes the functional testing programs included with this 
+code release. Both programs have MAIN functions and can be run from the command
+line.
+
+Test program details
+--------------------
+Example sketched symbols are found in the "/testData" folder from the root of 
+the ZIP file. The "true labels" for each of the examples is the name of the 
+directory the data is in. So, for any example testData/hostileInfantry/blah.xml, 
+the "true label" is hostileInfantry. The "assigned label" is the shape from the 
+domain that the recognizer thinks the example is an instance of. 
+
+Two accuracies are computed. The first is a count/percentage of how many total
+examples the true label matches the assigned label of the first shape in the 
+n-best list. So if an example hostileInfantry shape results in an n-best list of
+"hostileInfantry, hostileCavalry," the count of # accurate increased by 1. If 
+the n-best list returned is "hostileCavalry, hostileInfantry," the accuracy 
+count is NOT incremented. However, we also keep a Precision at 3 accuracy count.
+This measures the number/percentage of examples where the correct answer appears
+in the top 3 results returned in the n-best list. So for the n-best list of
+"hostileCavalry, hostileInfantry," our precision at three count is incremented
+by 1, even though plain accuracy is not.
+
+Each level of test, domain and shape, takes three inputs from the command line.
+
+1) The first is the directory where to find the example shapes. These are the 
+sketched examples that you want to classify. For the domain level test, this 
+should be the directory where all the example subdirectories are located (like 
+the "/testData" folder). For the shape level test, this should be the 
+subdirectory containing the specific shape examples that you want to rest 
+recognition on (like "/testData/hostileInfantry").
+
+2) The second is the path to the domain definition XML file that controls which
+shapes the recognizer can put in the n-best list (like 
+"/domainDescriptions/domains/COA.xml"). The recognizer can only guess that an 
+example is one of the shapes listed in the domain definition.
+
+3) The third argument is a path to a file where you want results of the 
+recognition tests written to.
+
+-----------------
+Domain Level Test
+
+This program runs all of the test data through the recognition process. 
+
+java -cp tamuDeepGreen-XXX.jar test.functional.ladder.recognition.constraint.domains.DomainDescriptionAccuracyTest testDir domainDefXML outputFile
+
+----------------
+Shape Level Test
+
+This program runs the recognition process on all the examples of one particular
+shape.
+
+java -cp tamuDeepGreen-XXX.jar test.functional.ladder.recognition.constraint.domains.ShapeDefTest shapeDir domainDefXML outputFile

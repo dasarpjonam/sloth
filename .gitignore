@@ -1,0 +1,5 @@
+bin
+*.class
+*.log
+build/deliverable
+build/testReports
